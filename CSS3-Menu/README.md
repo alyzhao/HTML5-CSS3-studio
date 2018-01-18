@@ -21,7 +21,6 @@ p:nth-of-type(2) {
 	+ 3d 位移, 主要包括 translateZ() 和 translate3d() 
 		- translate3d(x, y, z) 向 x, y, z 轴偏移对应的值
 	+ 3d 缩放, 主要包括 scaleZ() 和 scale3d()
-		- 
 	+ 3d 旋转, 主要包括 rotateX(), rotateY(), rotateZ(), rotate3d()
 		- rotate3d(x, y, z, N) 变形元素沿着由(0,0,0)和(x,y,z)这两个点构成的直线为轴，进行旋转 N 角度
 			* rotateZ(Ndeg)相当于rotate3d(0,0,1,Ndeg)
