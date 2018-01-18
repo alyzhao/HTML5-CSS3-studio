@@ -8,5 +8,5 @@ p:nth-of-type(2) {
 
 2. css3 tansform 属性
 	- scale(sx, sy) 				定义 2d 平面上的向量形式的缩放
-	- scaleX(s)
+	- scaleX(s)					这是一个 3d 转换
 	- scaleY()
