@@ -1,14 +1,10 @@
-## notes
-
-1. webpack 打包 scss, sass
-
-## config
+## Notes
 
 1. :nth-of-type(n) 选择器, 选择属于父元素的特定类型的第 n 个元素, n 可以为表达式
 ```
 /* 选择属于父元素的第 2 个 p 元素 */
 p:nth-of-type(2) { 
-	background:#ff0000;
+	background: #ff0000;
 }
 ```
 
@@ -31,4 +27,29 @@ p:nth-of-type(2) {
 	+ perspective 透视距离, 即观察者与屏幕的距离, z 轴的距离
 
 
+## Trouble
+
+1. webpack 打包 scss, sass [参考链接](https://www.linpx.com/p/webpack2-and-sass-setup-tutorial.html)
+	+ 使用 node-sass 
+		- npm i node-sass -g 
+		- node-sass src/style.scss dist/style.css 			# 编译 sass
+		- node-sass src/style.scss dist/style.css -w 		# 实时编译
+
+## Schedule
+
+## Cogitation
+
+1. 点击旋转角度
+	- var zDeg = some deg
+	- click => get domDeg = some deg
+	- transform: rotateZ()
+
+	发现一个规律, 
+
+	建一个坐标系, 存储起来, 数组, 点击的时候, 判断这是第几个
+	dom 节点每个对应的中间位置会有一个角度, 存储成数组, 获取当前 center 的旋转值 (d_center - dom_z(应该旋转的角度)) % 360
+	d_dom - d_center = d_center_t 
+
+	每个 dom 应该旋转到中心的 位置 事先也是可以计算的出的
+	应该旋转到中心位置的度数 = 90 - i * interval - start
 

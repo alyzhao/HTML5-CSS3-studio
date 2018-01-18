@@ -18,6 +18,7 @@ body {
 	top: 50%;
 	margin: auto;
 	transform: translateY(-50%) translateZ(-870px) rotateX(69deg) rotateY(-26deg) rotateZ(-647deg) scale(0.9);
+	transition: all ease .5s;
 }
 
 %circ_loop {
@@ -59,11 +60,17 @@ body {
 }
 
 .center {
-	@extend %center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	margin: auto;
 	height: 50px;
 	width: 50px;
 	background-color: #ff0000;
-	animation: wiggle 20s infinite linear;
+    transition: all ease .3s;
+	// animation: wiggle 20s infinite linear;
+	transform: translateY(-50%) translateZ(-870px) rotateX(69deg) rotateY(-26deg) scale(0.9);
 	.core {
 	    width: 50px;
 	    height: 50px;
@@ -170,9 +177,12 @@ body {
 	        width: 200px;
 	        height: 20px;
 	        transform-origin: -540px 0px;
-	        @for $i from 1 through 36 {
+	        .tip {
+	        	display: none;
+	        }
+	        @for $i from 1 through 5 {
 	        	&:nth-of-type(#{$i}) {
-	        		transform:rotateZ($i*10 + (0deg) - 55) rotateY(0deg);
+	        		transform:rotateZ($i*10 + (0deg)) rotateY(0deg);
 
 	        	}
 	        }
@@ -181,11 +191,11 @@ body {
 }
 
 @keyframes wiggle{
-  0%{transform: translateY(0) translateZ(-840px) rotateX(64deg) rotateY(-21deg) rotateZ(72deg) scale(0.9);}
-  25%{transform: translateY(0) translateZ(-820px) rotateX(66deg) rotateY(-24deg) rotateZ(144deg) scale(0.9);}
-  50%{transform: translateY(0) translateZ(-840px) rotateX(62deg) rotateY(-23deg) rotateZ(216deg) scale(0.9);}
-  75%{transform: translateY(0) translateZ(-840px) rotateX(63deg) rotateY(-19deg) rotateZ(288deg) scale(0.9);}
-  100%{transform: translateY(0) translateZ(-840px) rotateX(64deg) rotateY(-21deg) rotateZ(360deg) scale(0.9);}
+  0%{transform: translateY(0) translateZ(-840px) rotateX(64deg) rotateY(-21deg) scale(0.9);}
+  25%{transform: translateY(0) translateZ(-820px) rotateX(66deg) rotateY(-24deg) scale(0.9);}
+  50%{transform: translateY(0) translateZ(-840px) rotateX(62deg) rotateY(-23deg) scale(0.9);}
+  75%{transform: translateY(0) translateZ(-840px) rotateX(63deg) rotateY(-19deg) scale(0.9);}
+  100%{transform: translateY(0) translateZ(-840px) rotateX(64deg) rotateY(-21deg) scale(0.9);}
 }
 
 @keyframes intro_box{
