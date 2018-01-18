@@ -1,0 +1,31 @@
+{
+  "name": "CSS3-Menu",
+  "version": "1.0.0",
+  "description": "1. :nth-of-type(n) 选择器, 选择属于父元素的特定类型的第 n 个元素, n 可以为表达式 ``` /* 选择属于父元素的第 2 个 p 元素 */ p:nth-of-type(2) {  \tbackground:#ff0000; } ```",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.9",
+    "node-sass": "^4.7.2",
+    "sass": "^1.0.0-beta.4",
+    "sass-loader": "^6.0.6",
+    "scss-loader": "0.0.1",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "extract-text-webpack-plugin": "^3.0.2"
+  }
+}

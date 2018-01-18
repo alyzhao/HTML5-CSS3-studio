@@ -1,0 +1,205 @@
+body {
+	height: 100vh;
+	animation: intro_box 1s 1s forwards;
+	opacity: 0;
+	perspective-origin: 50% -10%;
+	margin: 0;
+	padding: 0;
+	perspective: 800px;
+	background: radial-gradient(ellipse at top left, rgba(222, 11, 70, 0.26) -160%, rgba(255, 255, 255, 0) 103%), -webkit-radial-gradient(center, ellipse cover, #0C1019 0%, #0B0B0E 100%);
+	overflow: hidden;
+}
+
+// 居中对齐
+%center {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	margin: auto;
+	transform: translateY(-50%) translateZ(-870px) rotateX(69deg) rotateY(-26deg) rotateZ(-647deg) scale(0.9);
+}
+
+%circ_loop {
+	position: absolute;
+	@for $i from 1 through 36 {
+		&:nth-of-type(#{$i}) {
+			border-radius: 2px;
+			transform: rotateZ($i*10 + (0deg));
+		}
+	}
+}
+
+%fade_loop {
+	@for $i from 1 through 36 {
+		&:nth-of-type(#{$i}) {
+			animation: fade 5s ($i/10 + 0s) infinite
+		}
+	}
+}
+
+%circ_loop_quart {
+	position: absolute;
+	@for $i from 1 through 36 {
+		&:nth-of-type(#{$i}) {
+			border-radius: 2px;
+			transform: rotateZ($i*4 + (0deg));
+		}
+	}
+}
+
+%circ_loop_quart_alt {
+	position: absolute;
+	@for $i from 1 through 36 {
+		&:nth-of-type(#{$i}) {
+			border-radius: 2px;
+			transform: rotateZ($i*4 + (0deg) - 180);
+		}
+	}
+}
+
+.center {
+	@extend %center;
+	height: 50px;
+	width: 50px;
+	background-color: #ff0000;
+	animation: wiggle 20s infinite linear;
+	.core {
+	    width: 50px;
+	    height: 50px;
+	    border-radius: 50px;
+	    background: #de0b46;
+	    box-shadow: 0px 0px 70px 20px #de0b46;
+	}
+	.outer_one {
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		left: 50%;
+		transform: translateX(-120px) translateY(-50%);
+		&__piece {
+			width: 10px;
+			height: 30px;
+			background: #de0b46;
+		    box-shadow: 0px 0px 20px 0px #de0b46;
+		    transform-origin: 120px 0;
+		    @extend %circ_loop;
+		}
+	}
+	.outer_two {
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		left: 50%;
+		transform: translateX(-290px) translateY(-50%);
+		&__piece {
+			width: 28px;
+			height: 5px;
+			background: #de0b46;
+		    box-shadow: 0px 0px 20px 0px #de0b46;
+		    transform-origin: 290px 0;
+		    @extend %circ_loop;
+		    @extend %fade_loop;
+		}
+	}
+	.outer_three {
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		left: 50%;
+		transform: translateX(-440px) translateY(-50%);
+		&__piece {
+			width: 55px;
+			height: 5px;
+			background-color: #55E2F9;
+			box-shadow: 0px 0px 20px 0px #55E2F9;
+			transform-origin: 440px 0;
+			@extend %circ_loop_quart;
+			@extend %fade_loop;
+		}
+	}
+	.outer_four {
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		left: 50%;
+		transform: translateX(-440px) translateY(-50%);
+		&__piece {
+			width: 6px;
+			height: 5px;
+			background: #de0b46;
+			box-shadow: 0px 0px 20px 0px #de0b46;
+			transform-origin: 440px 0;
+			@extend %circ_loop_quart_alt;
+			@extend %fade_loop;
+		}
+	}
+	.outer_five {
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		left: 50%;
+		transform: translateX(-410px) translateY(-50%);
+		&__piece {
+			width: 6px;
+			height: 5px;
+			background: #de0b46;
+			box-shadow: 0px 0px 20px 0px #de0b46;
+			transform-origin: 410px 0;
+			@extend %circ_loop_quart_alt;
+			@extend %fade_loop;			
+		}
+	}
+	.pieces {
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		left: 50%;
+		transform: translateX(540px) translateY(-50%);
+		.future_ui__piece {
+			border: 3px solid #DE0B46;
+	        position: absolute;
+	        font-weight:900;
+	        padding:30px;
+	        font-size:30px;
+	        box-shadow: 0px 0px 25px rgba(222, 11, 70, 0.27);
+	        transform-style: preserve-3d;
+	        transition: all 1s .1s;
+	        color: white;
+	        text-align: left;
+	        width: 200px;
+	        height: 20px;
+	        transform-origin: -540px 0px;
+	        @for $i from 1 through 36 {
+	        	&:nth-of-type(#{$i}) {
+	        		transform:rotateZ($i*10 + (0deg) - 55) rotateY(0deg);
+
+	        	}
+	        }
+		}
+	}
+}
+
+@keyframes wiggle{
+  0%{transform: translateY(0) translateZ(-840px) rotateX(64deg) rotateY(-21deg) rotateZ(72deg) scale(0.9);}
+  25%{transform: translateY(0) translateZ(-820px) rotateX(66deg) rotateY(-24deg) rotateZ(144deg) scale(0.9);}
+  50%{transform: translateY(0) translateZ(-840px) rotateX(62deg) rotateY(-23deg) rotateZ(216deg) scale(0.9);}
+  75%{transform: translateY(0) translateZ(-840px) rotateX(63deg) rotateY(-19deg) rotateZ(288deg) scale(0.9);}
+  100%{transform: translateY(0) translateZ(-840px) rotateX(64deg) rotateY(-21deg) rotateZ(360deg) scale(0.9);}
+}
+
+@keyframes intro_box{
+  0%{opacity:0;transform:scale(0)}
+  20%{opacity:1;transform:scale(1.2)}
+  40%{transform:scale(0.89)}
+  60%{transform:scale(1.04)}
+  80%{transform:scale(0.98)}
+  100%{opacity:1;transform:scale(1)}
+}
+
+// ligth 
+@keyframes fade{
+  0%{opacity:0;}
+  50%{opacity:1;}
+  100%{opacity:0;}
+}
