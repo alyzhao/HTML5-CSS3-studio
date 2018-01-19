@@ -1,5 +1,6 @@
 body {
   height: 100vh;
+  position: relative;
   animation: intro_box 1s 1s forwards;
   opacity: 0;
   perspective-origin: 50% -10%;
@@ -450,6 +451,14 @@ body {
     border-radius: 2px;
     transform: rotateZ(-36deg); }
 
+.test {
+  z-index: -999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 903px;
+  height: 292px; }
+
 .center {
   position: absolute;
   left: 0;
@@ -559,6 +568,10 @@ body {
         transform: rotateZ(40deg) rotateY(0deg); }
       .center .pieces .future_ui__piece:nth-of-type(5) {
         transform: rotateZ(50deg) rotateY(0deg); }
+      .center .pieces .future_ui__piece:nth-of-type(6) {
+        transform: rotateZ(60deg) rotateY(0deg); }
+      .center .pieces .future_ui__piece:nth-of-type(7) {
+        transform: rotateZ(70deg) rotateY(0deg); }
 
 @keyframes wiggle {
   0% {

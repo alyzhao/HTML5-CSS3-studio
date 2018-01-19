@@ -1,5 +1,6 @@
 body {
 	height: 100vh;
+	position: relative;
 	animation: intro_box 1s 1s forwards;
 	opacity: 0;
 	perspective-origin: 50% -10%;
@@ -57,6 +58,15 @@ body {
 			transform: rotateZ($i*4 + (0deg) - 180);
 		}
 	}
+}
+
+.test {
+	z-index: -999;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 903px;
+	height: 292px;
 }
 
 .center {
@@ -180,7 +190,7 @@ body {
 	        .tip {
 	        	display: none;
 	        }
-	        @for $i from 1 through 5 {
+	        @for $i from 1 through 7 {
 	        	&:nth-of-type(#{$i}) {
 	        		transform:rotateZ($i*10 + (0deg)) rotateY(0deg);
 
