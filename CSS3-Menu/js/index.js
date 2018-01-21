@@ -7,8 +7,41 @@ let centerDeg = [];
 let oldX = null;
 let oldY = null;
 
+let centerX = element_center.offsetLeft + element_center.offsetWidth / 2;
+let centerY = element_center.offsetTop + element_center.offsetHeight / 2;
+
+let body = document.querySelector('body');
+
+let centerPoint = [centerX, centerY, -870];
+let perspective = [body.offsetWidth / 2, - body.offsetHeight / 10, 800];
+
+console.log("centerPoint", centerPoint);
+console.log('perspective', perspective);
+
+let y1 = centerPoint[1],
+	z1 = centerPoint[2],
+	y2 = perspective[1],
+	z2 = perspective[2];
+
+// k = (z1 - z2) / (y1 - y2)
+
+// z = k y + b 
+
+// z - z1 = [(z2 - z1) / (y2 - y1)](y - y1)
+
+// y - y1 = [(y2 - y1) / (z2 - z1)](z - z1)
+
+// y = [(y2 - y1) / (z2 - z1)](z - z1) + y1
+
+// y = -z1 * [(y2 - y1) / (z2 - z1)] + y1
+
+let y = -z1 * (y2 - y1) / (z2 - z1) + y1;	// right !
+
+console.log(y);
+
 let origin = { x: 929, y: 100 }
-console.log('origin', origin);
+// console.log('origin', origin);
+console.log(centerX, centerY);
 
 let start_coor = { x: null, y: null};
 
@@ -36,7 +69,7 @@ for (let i = 0, len = element.length; i < len; i++) {
 		oldY = e.clientY;
 		start_coor.x = oldX;
 		start_coor.y = oldY;
-		console.log('start_coor', start_coor);
+		// console.log('start_coor', start_coor);
 	}
 }
 
@@ -106,19 +139,19 @@ bodyElement.onmouseup = function(e) {
 		y: newY
 	}
 
-	console.log('mouseup');
+	// console.log('mouseup');
 
-	console.log('end_coor', end_coor);
+	// console.log('end_coor', end_coor);
 
 	let angle = vectorAngle(origin, start_coor, end_coor);
-	console.log('angle', angle);
+	// console.log('angle', angle);
 
 	let transform = element_center.style.transform;
 	if (transform == '') {
 		element_center.style.transform = t_start + `rotateZ(${angle}deg)`;
 	} else {
 		let rotate_now = /rotateZ\((\d+)deg\)/g.exec(transform)[1];
-		console.log('re', parseInt(rotate_now) + parseInt(angle));
+		// console.log('re', parseInt(rotate_now) + parseInt(angle));
 		let rotate_r = (parseInt(rotate_now) + parseInt(angle)) % 360;		
 		element_center.style.transform = t_start + ` rotateZ(${rotate_r}deg)`		
 	}

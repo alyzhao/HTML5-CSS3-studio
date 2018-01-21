@@ -74,4 +74,8 @@ p:nth-of-type(2) {
 	每个 dom 应该旋转到中心的 位置 事先也是可以计算的出的
 	应该旋转到中心位置的度数 = 90 - i * interval - start
 	
+	知道了变换的规律现在可以计算出 origin 的坐标
+
+	以浏览器的左上为原点建坐标轴
+	perspective-origin(body / 2, - body / 10, 800)
 
