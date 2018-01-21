@@ -35,7 +35,7 @@ let y1 = centerPoint[1],
 
 // y = -z1 * [(y2 - y1) / (z2 - z1)] + y1
 
-let y = -z1 * (y2 - y1) / (z2 - z1) + y1;	// right !
+let y = -z1 * (y2 - y1) / (z2 - z1) + y1 - element_center.offsetHeight / 2;	// right !
 
 console.log(y);
 

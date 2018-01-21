@@ -78,4 +78,15 @@ p:nth-of-type(2) {
 
 	以浏览器的左上为原点建坐标轴
 	perspective-origin(body / 2, - body / 10, 800)
+	center()
+
+	那现在要就算的角度就是 视点 与点击点 在 center 平面上的交点 到 center 中心的 夹角\
+
+
+https://wenku.baidu.com/view/6dac0c22915f804d2b16c17c.html
+http://blog.csdn.net/bingcaihuang/article/details/5806139
+http://www.cnblogs.com/graphics/archive/2012/08/08/2609005.html
+http://blog.csdn.net/smallflyingpig/article/details/51234711?locationNum=8&fps=1
+
+	首先求旋转后的平面方程, 先求法线向量, (0, sqrt(3), 0) => (0, 1, sqrt(3)) => 
 
