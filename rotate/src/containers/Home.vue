@@ -1,6 +1,6 @@
 <template>
 	<div class="center">
-		<rotate-cell v-for="(item, index) in datas" :name="item.name" :value="item.value" :style="'transform: rotateZ(' + anguleInterval * index + 'deg)'"></rotate-cell>
+		<rotate-cell v-for="(item, index) in datas" :key="item.name" :name="item.name" :value="item.value" :style="'transform: rotateZ(' + anguleInterval * index + 'deg)'"></rotate-cell>
 	</div>
 </template>
 <script>
@@ -28,6 +28,21 @@
 				}, {
 					name: 5,
 					value: '人社厅'
+				}, {
+					name: 6,
+					value: '人社厅'
+				}, {
+					name: 7,
+					value: '人社厅'
+				}, {
+					name: 8,
+					value: '人社厅'
+				}, {
+					name: 9,
+					value: '人社厅'
+				}, {
+					name: 10,
+					value: '人社厅'
 				}]
 			}
 		},
@@ -50,5 +65,6 @@
 		margin-left: -50px;
 		top: 50%;
 		margin-top: -50px;
+		transform: translateZ(-360px) rotateX(60deg) rotateY(-30deg);
 	}
 </style>

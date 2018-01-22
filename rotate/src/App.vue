@@ -20,7 +20,7 @@
 		overflow: hidden;
 
 		perspective: 800px;
-		perspective-origin: 50% -10%;
+		perspective-origin: 50% 50%;
 		transform-style: preserve-3d;
 		backface-visibility: hidden;
 	}
