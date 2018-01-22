@@ -10,6 +10,9 @@ let oldY = null;
 let centerX = element_center.offsetLeft + element_center.offsetWidth / 2;
 let centerY = element_center.offsetTop + element_center.offsetHeight / 2;
 
+console.log('centerX', centerX);
+console.log('centerY', centerX);
+
 let body = document.querySelector('body');
 
 let centerPoint = [centerX, centerY, -870];
