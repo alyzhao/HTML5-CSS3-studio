@@ -1,13 +1,12 @@
 <template>
-	<div class="center-wrap" @mousemove="moveRotate()" @mouseup="msUpRotate()">
-		<div class="center" :style="'transform: translateZ(-200px) rotateX(60deg) rotateY(-30deg) rotateZ(' + rotateAngle + 'deg)'">
-			<rotate-cell v-for="(item, index) in datas" :key="item.name" :name="item.name" :value="item.value" :style="'transform: rotateZ(' + anguleInterval * index + 'deg)'" @click.native="clickRotate(index, $event)" @mousedown.native="msDownRotate()"></rotate-cell>
+	<div class="center-wrap" @mousemove="moveRotate($event)" @mouseup="msUpRotate()">
+		<div class="center" ref="center_el" :style="'transform: translateZ(-200px) rotateX(60deg) rotateY(-30deg) rotateZ(' + rotateAngle + 'deg)'">
+			<rotate-cell v-for="(item, index) in datas" :key="item.name" :name="item.name" :value="item.value" :style="'transform: rotateZ(' + anguleInterval * index + 'deg)'" @click.native="clickRotate(index, $event)" @mousedown.native="msDownRotate($event)"></rotate-cell>
 		</div>
 	</div>
 </template>
 <script>
 	import RotateCell from '../components/RotateCell';
-
 
 	export default {
 		name: 'Home',
@@ -65,7 +64,15 @@
 				rotateAngle: 0,
 				dragAble: false,
 				mouseUp: false,
+				coordinateStart: null,
+				coordinateEnd: null,
+				matrix: [[0.866, -0.433, 0.25, 0], [0, 0.5, 0.866, 0], [-0.5, -0.75, 0.433, 0], [0, 0, -870, 1]]
 			}
+		},
+		mounted() {
+			this.$nextTick(function() {
+
+			})
 		},
 		methods: {
 			clickRotate(index, e) {
@@ -73,9 +80,13 @@
 				e.preventDefault();
 				e.stopPropagation();
 				let rotation = 90 - index * this.anguleInterval
-				this.rotateAngle =  rotation < -180 ?  rotation + 360 : rotation;
+				this.rotateAngle = rotation;
 			},
-			msDownRotate() {
+			msDownRotate(e) {
+				let x = e.clientX;
+				let y = e.clientY;
+				this.coordinateStart = [x, y, 0];
+				console.log(this.coordinateStart);
 				this.mouseUp = false;
 				setTimeout(() => {
 					if (!this.mouseUp)
@@ -83,20 +94,42 @@
 				}, 100)
 				console.log('mousedown');
 			},
-			moveRotate() {
+			moveRotate(e) {
 				if (this.dragAble) {
-					console.log('move');					
+					console.log('move');
+
+					let x = e.clientX;
+					let y = e.clientY;
+
+					this.coordinateEnd = [x, y, 0];
+
+					// let rotateStart = 
+					let origin = this.coordinateOrigin;
+
 				}
 			},
 			msUpRotate() {
 				this.dragAble = false;
 				this.mouseUp = true;
 				console.log('up');
+				console.log(this.coordinateOrigin)
+			},
+			transformCoor([x, y, z]) {
+				let m = this.matrix;
+				
 			}
 		},
 		computed: {
 			anguleInterval() {
 				return 360 / (this.datas.length || 1)
+			},
+			coordinateOrigin() {
+				let center_el = this.$refs.center_el;
+				console.log(center_el);
+				let x = center_el.offsetLeft + center_el.offsetWidth / 2;
+				let y = center_el.offsetTop + center_el.offsetHeight / 2;
+				let origin = [x, y, 0];
+				return origin;
 			}
 		},
 		components: {

@@ -104,3 +104,8 @@ http://www.cnblogs.com/ywxgod/archive/2010/08/06/1793609.html
 [计算矩阵](http://blog.csdn.net/lht748/article/details/53259128)
 http://www.webkkl.com/style/matrix3d.php
 
+					0	1	2	3
+(x, y, z, 1)		4	5	6	7
+					8	9	10	11
+					12	13	14	15
+
