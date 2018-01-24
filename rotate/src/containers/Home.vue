@@ -7,7 +7,7 @@
 			<div class="bottom-round">
 				<div class="rdb"></div>
 				<bottom-rotate-cell v-for="(item, index) in bDatas" :key="item.name" :value="item.value" :style="'transform: rotateZ(' + bAnguleInterval * index + 'deg) rotateY(80deg)'"></bottom-rotate-cell>
-			</div>			
+			</div>          
 		</div>
 	</div>
 </template>
