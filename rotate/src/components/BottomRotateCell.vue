@@ -1,16 +1,16 @@
 <template>
-	<div class="rotate-cell" @click="">
-		<div class="split"><i class="ball" :style="'animation-delay: ' + Math.random().toFixed(2) + 's'"></i></div>
-		<div class="tag" :name="name">{{value}}</div>
+	<div class="bottom-cell">
+		<div class="b-split"><i class="b-ball" :style="'animation-delay: ' + Math.random().toFixed(2) + 's'"></i></div>
+		<div class="b-tag" :name="name">{{value}}</div>
 	</div>
 </template>
 <script>
 	export default {
 		props: ['name', 'value']
-	}
+	}	
 </script>
 <style lang="scss">
-	.rotate-cell {
+	.bottom-cell {
 		position: absolute;
 		left: 50%;
 		perspective-origin: left center;
@@ -19,36 +19,26 @@
 		justify-content: center;
 		transform-origin: left center;
 		top: 50%;
-		padding-left: 125px;
 		user-select: none;
-		.split {
+		padding-left: 100px;
+		height: 50px;
+		margin-top: -25px;
+		.b-split {
 			background-color: #55E2F9;
-			width: 200px;
+			width: 500px;
 			height: 3px;
 			border-radius: 100%;
 			box-shadow: 0px 0px 20px 0px #55E2F9;
 			display: flex;
 			align-items: center;
-			.ball {
+			.b-ball {
 				display: inline-block;
 				border-radius: 50%;
 				width: 13px;
 				height: 13px;
 				background-color: #03afdf;
-				animation: slippage 2s linear 0s infinite alternate; 
+				animation: bslippage 2s linear 0s infinite alternate;
 			}
-		}
-		.tag {
-			color: #056f97;
-			opacity: .8;
-			padding: 10px 30px;
-			font-size: 16px;
-			text-align: center;
-			border: 3px solid #58dee9;
-			background-color: #03afdf;
-			margin-left: 15px;
-			white-space: nowrap;
-			font-weight: bold;
 		}
 	}
 	@keyframes slippage {

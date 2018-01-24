@@ -92,12 +92,15 @@ http://blog.csdn.net/smallflyingpig/article/details/51234711?locationNum=8&fps=1
 
 	首先求旋转后的平面方程, 先求法线向量, (0, sqrt(3), 0) => (0, 1, sqrt(3)) => 
 
-	1,0,0,0,0,1,0,0,0,0,-870,0,0,0,0,1
+	1,0,0,0,0,1,0,0,0,0,-200,0,0,0,0,1
 
 	1, 0, 0, 0, 0, 0.5, 0.866, 0, 0, -0.866, 0.5, 0, 0, 0, -870, 1
 	-0.866, -0.433, 0.25, 0, 0, 0.5, 0.866, 0, -0.5, 0.75, -0.433, 0, 0, 0, -870, 1
 
-	0.866, -0.433, 0.25, 0, 0, 0.5, 0.866, 0, -0.5, -0.75, 0.433, 0, 0, 0, -870, 1 				// right! translateZ(-870px) rotateX(60deg) rotateY(-30deg)
+	0.866,	 -0.433, 	0.25, 	0, 
+	0, 		 0.5,	 	0.866, 	0, 
+	-0.5,	 -0.75, 	0.433, 	0, 
+	0, 		 0,	        -200, 	1 				// right! translateZ(-870px) rotateX(60deg) rotateY(-30deg)
 
 http://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%E7%9F%A9%E9%98%B5/
 http://www.cnblogs.com/ywxgod/archive/2010/08/06/1793609.html
