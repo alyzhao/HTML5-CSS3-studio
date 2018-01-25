@@ -26,7 +26,7 @@ html, body {
   left: 50%;
   margin-top: -110px;
   margin-left: -190px;
-  background: transparent url(/dist/images/center.6cbc60f.png) no-repeat;
+  background: transparent url(./images/center.6cbc60f.png) no-repeat;
   background-size: 380px;
   z-index: 1;
   transform-style: preserve-3d;
@@ -35,7 +35,7 @@ html, body {
   width: 200px;
   height: 100px;
   position: absolute;
-  background: transparent url(/dist/images/left-img.ce85d6c.png) no-repeat;
+  background: transparent url(./images/left-img.ce85d6c.png) no-repeat;
   background-size: 200px;
   top: -170px;
   left: -80px;
@@ -83,7 +83,7 @@ html, body {
   width: 180px;
   height: 170px;
   position: absolute;
-  background: transparent url(/dist/images/right-img.0cdc64a.png) no-repeat;
+  background: transparent url(./images/right-img.0cdc64a.png) no-repeat;
   background-size: 170px;
   top: -170px;
   left: 330px;

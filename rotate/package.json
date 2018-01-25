@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node server",
     "start": "webpack-dev-server --inline --hot",
-    "build": "webpack --progress --colors"
+    "build": "webpack --progress"
   },
   "keywords": [
     "css3"
