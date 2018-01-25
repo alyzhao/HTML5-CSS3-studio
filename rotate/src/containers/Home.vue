@@ -1,12 +1,40 @@
 <template>
-	<div class="center-wrap" @mousemove="moveRotate($event)" @mouseup="msUpRotate($event)">
-		<div class="center" ref="center_el" :class="{ drag: dragAble }" :style="'transform: translateZ(-200px) rotateX(60deg) rotateY(-30deg) rotateZ(' + rotateAngle + 'deg)'">
-			<rotate-cell v-for="(item, index) in datas" :key="item.name" :name="item.name" :value="item.value" :style="'transform: rotateZ(' + anguleInterval * index + 'deg)'" @click.native="clickRotate(index, $event)" @mousedown.native="msDownRotate($event)"></rotate-cell>
+	<div class="center-wrap" @mousemove="moveRotate($event)" @mousedown="unShow()" @mouseup="msUpRotate($event)">
+		<div class="center-img">
+			<div class="left-img">
+				<div class="left-board">
+					<div class="split-left"></div>
+					<div class="con">
+						<p><i class="icon icon-people"></i>群众</p>
+						<p><i class="icon icon-company"></i>企业</p>
+						<p><i class="icon icon-other"></i>其他</p>
+					</div>
+				</div>
+			</div>
+			<div class="right-img"></div>
+			<div class="right-line">
+				<extend-line :width="180" :height="10"></extend-line>
+			</div>
+			<div class="left-line">
+				<extend-line :width="220" :height="10"></extend-line>
+			</div>
+			<div v-if="centerShow && centerContent.name" class="left-board cb">
+				<div class="split-left"></div>
+				<div class="con">
+					<p><i class="icon icon-people"></i>{{centerContent.value}}</p>
+					<p><i class="icon icon-company"></i>{{centerContent.value}}</p>
+					<p><i class="icon icon-other"></i>{{centerContent.value}}</p>
+				</div>
+			</div>
 		</div>
-		<div class="center" :style="'z-index: -1;transform: translateZ(-200px) rotateX(60deg) rotateY(-30deg) rotateZ(' + rotateBottomAngle + 'deg)'">
+		<div class="center" ref="center_el" :class="{ drag: dragAble }" :style="'transform: translateZ(-200px) rotateX(66deg) rotateY(-15deg) rotateZ(' + rotateAngle + 'deg)'">
+			
+			<rotate-cell v-for="(item, index) in datas" :key="item.name" :name="item.name" :value="item.value" :style="'transform: translateY(-50%) rotateZ(' + anguleInterval * index + 'deg)'" @click.native="clickRotate(index, $event)" @mousedown.native="msDownRotate($event)"></rotate-cell>
+		</div>
+		<div class="center" :style="'z-index: -1;transform: translateZ(-200px) rotateX(65deg) rotateY(-15deg) rotateZ(' + rotateBottomAngle + 'deg)'">
 			<div class="bottom-round">
 				<div class="rdb"></div>
-				<bottom-rotate-cell v-for="(item, index) in bDatas" :key="item.name" :value="item.value" :style="'transform: rotateZ(' + bAnguleInterval * index + 'deg) rotateY(80deg)'"></bottom-rotate-cell>
+				<bottom-rotate-cell v-for="(item, index) in bDatas" :key="item.name" :value="item.value" :style="'transform: rotateZ(' + bAnguleInterval * index + 'deg)'"></bottom-rotate-cell>
 			</div>          
 		</div>
 	</div>
@@ -14,7 +42,7 @@
 <script>
 	import RotateCell from '../components/RotateCell';
 	import BottomRotateCell from '../components/BottomRotateCell';
-
+	import ExtendLine from '../components/ExtendLine';
 // 'transform: rotateY(70deg) rotateZ(' + bAnguleInterval * index + 'deg)'
 	export default {
 		name: 'Home',
@@ -102,9 +130,9 @@
 				mouseUp: false,
 				coordinateStart: null,
 				coordinateEnd: null,
-				// matrix: [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -200], [0, 0, 0, 1]]
-				matrix: [[0.866, 0, -0.5, 0], [-0.433, 0.5, -0.75, 0], [0.25, 0.866, 0.433, -200], [0, 0, 0, 1]],
-				rotateBottomAngle: 0
+				rotateBottomAngle: 0,
+				centerShow: false,
+				centerContent: null
 			}
 		},
 		mounted() {
@@ -119,6 +147,8 @@
 				e.stopPropagation();
 				let rotation = 90 - index * this.anguleInterval
 				this.rotateAngle = rotation;
+				this.centerShow = true;
+				this.centerContent = this.datas[index];
 			},
 			flatCoor(x, y) {
 				let center_el = this.$refs.center_el;
@@ -148,7 +178,7 @@
 					this.coordinateEnd = [x, y, 0];
 
 					let direct = e.clientX < this.coordinateStart[0] ? 1 : -1;
-					this.rotateAngle = this.rotateAngle + direct * 2;
+					this.rotateAngle = this.rotateAngle + direct * 5;
 				}
 			},
 			msUpRotate(e) {
@@ -160,6 +190,9 @@
 				this.mouseUp = true;
 				console.log('up');
 				console.log(this.coordinateOrigin)
+			},
+			unShow() {
+				this.centerShow = false;
 			},
 			transformCoor(arrCoor) {
 
@@ -178,7 +211,8 @@
 		},
 		components: {
 			RotateCell,
-			BottomRotateCell
+			BottomRotateCell,
+			ExtendLine
 		}
 	}
 </script>
@@ -186,6 +220,89 @@
 	.center-wrap {
 		width: 100%;
 		height: 100%;
+	}
+	.center-img {
+	    width: 380px;
+	    height: 240px;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    margin-top: -110px;
+	    margin-left: -190px;
+		background: transparent url('../assets/img/center.png') no-repeat;
+		background-size: 380px;
+		z-index: 1;
+		transform-style: preserve-3d;
+	}
+	.left-img {
+		width: 200px;
+		height: 100px;
+		position: absolute;
+		background: transparent url('../assets/img/left-img.png') no-repeat;
+		background-size: 200px;
+		top: -170px;
+		left: -80px;
+	} 
+	.left-board {
+		border-radius: 5px;
+		border: 2px solid #75f1ff;
+		transform: translate3d(-200px, -115px, 0) rotateY(30deg) translateZ(-280px);
+		user-select: none;
+		&.cb {
+			width: 300px;
+			transform: translate3d(101px, 403px, 0) rotateY(48deg) translateZ(-330px);
+			animation: delay 3s linear;
+		}
+		.split-left {
+			width: 56px;
+		    height: 5px;
+		    box-shadow: 0px 0px 55px 7px #00d9fd;
+		    background-color: #75daea;
+		    position: absolute;
+		    right: -57px;
+		    top: 50%;
+		    margin-top: -2px;
+
+		}
+		.con {
+			background-color: #75daea;
+			margin: 20px 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 55px 7px #00d9fd;
+			p {
+				margin: 0;
+			    text-align: left;
+			    padding: 5px 33px;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    .icon {
+			    	flex-grow: .5;
+			    	font-size: 18px;
+			    }
+			}
+		}
+	}
+	.right-img {
+		width: 180px;
+	    height: 170px;
+	    position: absolute;
+	    background: transparent url('../assets/img/right-img.png') no-repeat;
+	    background-size: 170px;
+	    top: -170px;
+	    left: 330px;
+	}
+	.right-line {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(60px) translateY(-45px) rotateZ(-43deg);
+	}
+	.left-line {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-34px) translateY(-56px) rotateZ(-135deg);		
 	}
 	.center {
 		width: 100px;
@@ -211,7 +328,7 @@
 			left: 50%;
 			margin-top: -100px;
 			margin-left: -100px;
-			transform: translateZ(-100px);
+			transform: translateZ(-380px) translateY(-140px);
 			.rdb {
 				width: 165px;
 				height: 165px;
@@ -223,5 +340,10 @@
 				border-radius: 50%;
 			}
 		}
+	}
+	@keyframes delay {
+		0% {opacity: 0;}
+		65% {opacity: 0;}
+		100% {opacity: 1;}
 	}
 </style>

@@ -21,6 +21,7 @@
 		top: 50%;
 		padding-left: 125px;
 		user-select: none;
+		cursor: pointer;
 		.split {
 			background-color: #55E2F9;
 			width: 200px;
@@ -39,9 +40,9 @@
 			}
 		}
 		.tag {
-			color: #056f97;
-			opacity: .8;
-			padding: 10px 30px;
+			color: #07313c;
+			width: 110px;
+			height: 55px;
 			font-size: 16px;
 			text-align: center;
 			border: 3px solid #58dee9;
@@ -49,6 +50,7 @@
 			margin-left: 15px;
 			white-space: nowrap;
 			font-weight: bold;
+			line-height: 50px;
 		}
 	}
 	@keyframes slippage {

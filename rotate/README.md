@@ -10,6 +10,10 @@
 
 3. slice()
 
+4. box-shadow
+
+5. .left-board different display different
+
 ## trouble 
 
 1. npm install, error code EINTEGRITY

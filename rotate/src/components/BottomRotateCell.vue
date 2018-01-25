@@ -1,6 +1,7 @@
 <template>
 	<div class="bottom-cell">
-		<div class="b-split"><i class="b-ball" :style="'animation-delay: ' + Math.random().toFixed(2) + 's'"></i></div>
+		<div class="b-split"></div>
+		<i class="b-ball" :style="'animation-delay: ' + Math.random().toFixed(2) + 's'"></i>
 		<div class="b-tag" :name="name">{{value}}</div>
 	</div>
 </template>
@@ -25,27 +26,44 @@
 		margin-top: -25px;
 		.b-split {
 			background-color: #55E2F9;
-			width: 500px;
+			width: 250px;
 			height: 3px;
 			border-radius: 100%;
 			box-shadow: 0px 0px 20px 0px #55E2F9;
 			display: flex;
 			align-items: center;
-			.b-ball {
-				display: inline-block;
-				border-radius: 50%;
-				width: 13px;
-				height: 13px;
-				background-color: #03afdf;
-				animation: bslippage 2s linear 0s infinite alternate;
-			}
+			opacity: 0.3;
+		}
+		.b-ball {
+			display: inline-block;
+		    border-radius: 50%;
+		    width: 10px;
+		    height: 10px;
+		    background-color: #74feff;
+		    animation: bslippage 5s linear 0s infinite alternate;
+		    position: absolute;
+		    left: 100px;
+		}
+		.b-tag {
+			color: #333;
+		    opacity: .8;
+		    font-size: 14px;
+		    text-align: center;
+		    background-color: #9de0f3;
+		    margin-left: 5px;
+		    white-space: nowrap;
+		    font-weight: bold;
+		    border-radius: 50%;
+		    width: 70px;
+		    height: 70px;
+		    line-height: 70px;
 		}
 	}
-	@keyframes slippage {
+	@keyframes bslippage {
 		0% {transform: translateX(0);}
-		25% {transform: translateX(50px);}
-		50% {transform: translateX(100px);}
-		75% {transform: translateX(150px);}
-		100% {transform: translateX(200px);}
+		25% {transform: translateX(62px);}
+		50% {transform: translateX(125px);}
+		75% {transform: translateX(188px);}
+		100% {transform: translateX(250px);}
 	}
 </style>
