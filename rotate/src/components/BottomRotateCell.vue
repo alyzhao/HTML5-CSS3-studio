@@ -1,7 +1,7 @@
 <template>
 	<div class="bottom-cell">
 		<div class="b-split"></div>
-		<i class="b-ball" :style="'animation-delay: ' + Math.random().toFixed(2) + 's'"></i>
+		<i class="b-ball" :style="'animation-delay: ' + Math.random().toFixed(2) * 4 + 's'"></i>
 		<div class="b-tag" :name="name">{{value}}</div>
 	</div>
 </template>

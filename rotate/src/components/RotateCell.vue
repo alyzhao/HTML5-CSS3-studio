@@ -1,6 +1,6 @@
 <template>
 	<div class="rotate-cell" @click="">
-		<div class="split"><i class="ball" :style="'animation-delay: ' + Math.random().toFixed(2) + 's'"></i></div>
+		<div class="split"><i class="ball" :style="'animation-delay: ' + Math.random().toFixed(2) * 4 + 's'"></i></div>
 		<div class="tag" :name="name">{{value}}</div>
 	</div>
 </template>

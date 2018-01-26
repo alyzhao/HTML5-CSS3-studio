@@ -28,7 +28,7 @@ html, body {
   margin-left: -190px;
   background: transparent url(./images/center.6cbc60f.png) no-repeat;
   background-size: 380px;
-  z-index: 1;
+  z-index: 2;
   transform-style: preserve-3d;
 }
 .left-img {
@@ -92,7 +92,7 @@ html, body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(60px) translateY(-45px) rotateZ(-43deg);
+  transform: translateX(54px) translateY(-46px) rotateZ(-43deg);
 }
 .left-line {
   position: absolute;
@@ -112,8 +112,29 @@ html, body {
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
+.center .op {
+    opacity: 0.8;
+    filter: blur(58px);
+    width: 1025px;
+    height: 644px;
+    transform: translate3d(-438px, -500px, 1px);
+    background: radial-gradient(ellipse at top left, rgba(222, 11, 70, 0.26) -160%, rgba(255, 255, 255, 0) 103%), -webkit-radial-gradient(center, ellipse cover, #0C1019 0%, #0B0B0E 100%);
+    border-radius: 50% 50% 0 0;
+}
 .center.drag {
     transition-duration: 0 !important;
+}
+.center .scale {
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    background-color: #00d9fd;
+    box-shadow: 0px 0px 55px 7px #00d9fd;
+    position: absolute;
+    border-radius: 50%;
 }
 .center .bottom-round {
     border-radius: 50%;

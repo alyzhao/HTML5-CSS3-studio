@@ -47,6 +47,7 @@
 		</div>
 		<div class="center"
 			:style="'z-index: -1;transform: translateZ(-200px) rotateX(65deg) rotateY(-15deg) rotateZ(' + rotateBottomAngle + 'deg)'">
+			<!-- <div v-for="n in 40" class="scale" :style="'transform: translateY(-100px) translateX(-5px) translateZ(' + (-n * 5 - 150) + 'px)'"></div> -->
 			<div class="bottom-round">
 				<div class="rdb"></div>
 				<bottom-rotate-cell v-for="(item, index) in bDatas"
@@ -345,6 +346,18 @@
 		}
 		&.drag {
 			transition-duration: 0 !important;
+		}
+		.scale {
+			width: 20px;
+		    height: 20px;
+		    top: 50%;
+		    left: 50%;
+		    margin-top: -10px;
+		    margin-left: -10px;
+		    background-color: #00d9fd;
+		    box-shadow: 0px 0px 55px 7px #00d9fd;
+		    position: absolute;
+		    border-radius: 50%;
 		}
 		.bottom-round {
 			border-radius: 50%;
