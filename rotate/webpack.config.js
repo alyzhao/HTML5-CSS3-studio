@@ -9,7 +9,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, './dist'),
 		filename: '[name].js',
-		publicPath: '/dist/'		// public 就是供服务器访问静态资源的的文件夹, 可以随便定义只是一个编码而已
+		publicPath: './'		// public 就是供服务器访问静态资源的的文件夹, 可以随便定义只是一个编码而已
 	},
 	devtool: 'source-map',
 	resolve: {
@@ -80,9 +80,18 @@ module.exports = {
 		new ExtractTextPlugin({
 			filename: 'style.css'	// 这是提取到 output 中去的, 可以加 '/' 建立一个文件夹
 		}),
+		new webpack.DefinePlugin({
+			'process.env': {
+				NODE_ENV: '"production"'
+			}
+		}),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.optimize.UglifyJsPlugin({  
-            compress: { warnings: false } 
+            compress: { 
+            	warnings: false,
+            	drop_debugger: true,  
+				drop_console: true
+        	} 
         })
 	]
 }

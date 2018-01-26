@@ -12,7 +12,16 @@
 
 4. box-shadow
 
-5. .left-board different display different
+5. left-board 放置的地方不同, 效果不同
+
+6. vue 的打包问题, 
+[参考链接](https://www.cnblogs.com/wanf/p/7871787.html)
+[去掉 console ](http://blog.csdn.net/neuq_zxy/article/details/78994349)
+[参考](https://segmentfault.com/a/1190000012135787)
+[github 项目参考](https://github.com/laoxubuer/Webpack-Vue-MultiplePage)
+[webpack 打包](https://www.cnblogs.com/zhuzhenwei918/p/7241971.html)
+[webpack 更多参考](http://blog.csdn.net/keliyxyz/article/details/51527476)
+[vue 官方推荐发布](https://cn.vuejs.org/v2/guide/deployment.html)
 
 ## trouble 
 
