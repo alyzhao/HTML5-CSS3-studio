@@ -1,5 +1,7 @@
 ## 项目概述
 
+基本上已经完成了, 再加一层模糊, 
+
 1. 
 
 ## notes
@@ -22,6 +24,8 @@
 [webpack 打包](https://www.cnblogs.com/zhuzhenwei918/p/7241971.html)
 [webpack 更多参考](http://blog.csdn.net/keliyxyz/article/details/51527476)
 [vue 官方推荐发布](https://cn.vuejs.org/v2/guide/deployment.html)
+[模糊](http://www.zhangxinxu.com/wordpress/2013/11/css-svg-image-blur/)
+
 
 ## trouble 
 

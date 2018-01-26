@@ -1,5 +1,8 @@
 <template>
-	<div class="center-wrap" @mousemove="moveRotate($event)" @mousedown="unShow()" @mouseup="msUpRotate($event)">
+	<div class="center-wrap"
+		@mousemove="moveRotate($event)"
+		@mousedown="unShow()"
+		@mouseup="msUpRotate($event)">
 		<div class="center-img">
 			<div class="left-img">
 				<div class="left-board">
@@ -27,15 +30,31 @@
 				</div>
 			</div>
 		</div>
-		<div class="center" ref="center_el" :class="{ drag: dragAble }" :style="'transform: translateZ(-200px) rotateX(66deg) rotateY(-15deg) rotateZ(' + rotateAngle + 'deg)'">
-			
-			<rotate-cell v-for="(item, index) in datas" :key="item.name" :name="item.name" :value="item.value" :style="'transform: translateY(-50%) rotateZ(' + anguleInterval * index + 'deg)'" @click.native="clickRotate(index, $event)" @mousedown.native="msDownRotate($event)"></rotate-cell>
+		<div class="center" style="transform: translateZ(-200px) rotateX(66deg) rotateY(-15deg) rotateZ(0deg);z-index: 1;">
+			<div class="op"></div>
 		</div>
-		<div class="center" :style="'z-index: -1;transform: translateZ(-200px) rotateX(65deg) rotateY(-15deg) rotateZ(' + rotateBottomAngle + 'deg)'">
+		<div class="center" ref="center_el"
+			:class="{ drag: dragAble }"
+			:style="'transform: translateZ(-200px) rotateX(66deg) rotateY(-15deg) rotateZ(' + rotateAngle + 'deg)'">
+			<rotate-cell v-for="(item, index) in datas"
+				:key="item.name"
+				:name="item.name"
+				:value="item.value"
+				:style="'transform: translateY(-50%) rotateZ(' + anguleInterval * index + 'deg)'"
+				@click.native="clickRotate(index, $event)"
+				@mousedown.native="msDownRotate($event)">
+			</rotate-cell>
+		</div>
+		<div class="center"
+			:style="'z-index: -1;transform: translateZ(-200px) rotateX(65deg) rotateY(-15deg) rotateZ(' + rotateBottomAngle + 'deg)'">
 			<div class="bottom-round">
 				<div class="rdb"></div>
-				<bottom-rotate-cell v-for="(item, index) in bDatas" :key="item.name" :value="item.value" :style="'transform: rotateZ(' + bAnguleInterval * index + 'deg)'"></bottom-rotate-cell>
-			</div>          
+				<bottom-rotate-cell v-for="(item, index) in bDatas"
+					:key="item.name"
+					:value="item.value"
+					:style="'transform: rotateZ(' + bAnguleInterval * index + 'deg)'">
+				</bottom-rotate-cell>
+			</div>
 		</div>
 	</div>
 </template>
@@ -231,7 +250,7 @@
 	    margin-left: -190px;
 		background: transparent url('../assets/img/center.png') no-repeat;
 		background-size: 380px;
-		z-index: 1;
+		z-index: 2;
 		transform-style: preserve-3d;
 	}
 	.left-img {
@@ -242,7 +261,7 @@
 		background-size: 200px;
 		top: -170px;
 		left: -80px;
-	} 
+	}
 	.left-board {
 		border-radius: 5px;
 		border: 2px solid #75f1ff;
@@ -296,13 +315,13 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translateX(60px) translateY(-45px) rotateZ(-43deg);
+		transform: translateX(54px) translateY(-46px) rotateZ(-43deg);
 	}
 	.left-line {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translateX(-34px) translateY(-56px) rotateZ(-135deg);		
+		transform: translateX(-34px) translateY(-56px) rotateZ(-135deg);
 	}
 	.center {
 		width: 100px;
@@ -315,6 +334,15 @@
 		transition: all ease 2s;
 		transform-style: preserve-3d;
 		backface-visibility: hidden;
+		.op {
+			opacity: 0.8;
+		    filter: blur(58px);
+		    width: 1025px;
+		    height: 644px;
+		    transform: translate3d(-438px, -500px, 1px);
+		    background: radial-gradient(ellipse at top left, rgba(222, 11, 70, 0.26) -160%, rgba(255, 255, 255, 0) 103%), -webkit-radial-gradient(center, ellipse cover, #0C1019 0%, #0B0B0E 100%);
+		    border-radius: 50% 50% 0 0;
+		}
 		&.drag {
 			transition-duration: 0 !important;
 		}

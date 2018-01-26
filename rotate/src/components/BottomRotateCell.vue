@@ -8,7 +8,7 @@
 <script>
 	export default {
 		props: ['name', 'value']
-	}	
+	}
 </script>
 <style lang="scss">
 	.bottom-cell {
