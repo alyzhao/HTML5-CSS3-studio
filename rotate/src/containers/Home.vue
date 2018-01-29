@@ -340,7 +340,7 @@
 		    filter: blur(58px);
 		    width: 1025px;
 		    height: 644px;
-		    transform: translate3d(-438px, -500px, 1px);
+		    transform: translateX(-500px) translateY(-600px);
 		    background: radial-gradient(ellipse at top left, rgba(222, 11, 70, 0.26) -160%, rgba(255, 255, 255, 0) 103%), -webkit-radial-gradient(center, ellipse cover, #0C1019 0%, #0B0B0E 100%);
 		    border-radius: 50% 50% 0 0;
 		}
