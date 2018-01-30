@@ -24,8 +24,8 @@
 		cursor: pointer;
 		.split {
 			background-color: #55E2F9;
-			width: 400px;
-			height: 6px;
+			width: 308px;
+			height: 5px;
 			border-radius: 100%;
 			box-shadow: 0px 0px 20px 0px #55E2F9;
 			display: flex;
@@ -36,28 +36,28 @@
 				width: 13px;
 				height: 13px;
 				background-color: #03afdf;
-				animation: slippage 2s linear 0s infinite alternate; 
+				animation: slippage 3s linear 0s infinite alternate; 
 			}
 		}
 		.tag {
 			color: #07313c;
-			width: 220px;
-			height: 110px;
+			width: 125px;
+			height: 80px;
 			font-size: 16px;
 			text-align: center;
-			border: 6px solid #58dee9;
+			border: 4px solid #58dee9;
 			background-color: #03afdf;
 			margin-left: 15px;
 			white-space: nowrap;
 			font-weight: bold;
-			line-height: 100px;
+			line-height: 80px;
 		}
 	}
 	@keyframes slippage {
 		0% {transform: translateX(0);}
-		25% {transform: translateX(50px);}
-		50% {transform: translateX(100px);}
-		75% {transform: translateX(150px);}
-		100% {transform: translateX(200px);}
+		25% {transform: translateX(77px);}
+		50% {transform: translateX(154px);}
+		75% {transform: translateX(231px);}
+		100% {transform: translateX(308px);}
 	}
 </style>

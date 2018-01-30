@@ -19,15 +19,15 @@ html, body {
   height: 100%;
 }
 .center-img {
-  width: 760px;
-  height: 480px;
+  width: 1000px;
+  height: 580px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -220px;
-  margin-left: -380px;
+  margin-top: -290px;
+  margin-left: -500px;
   background: transparent url(./images/center.271645a.png) no-repeat;
-  background-size: 760px;
+  background-size: 1000px;
   z-index: 2;
   transform-style: preserve-3d;
 }
@@ -43,7 +43,7 @@ html, body {
 .left-board {
   border-radius: 5px;
   border: 2px solid #75f1ff;
-  transform: translate3d(-521px, -230px, 0) rotateY(30deg) translateZ(-280px);
+  transform: translate3d(-655px, -180px, 0) rotateY(10deg) translateZ(-255px);
   user-select: none;
 }
 .left-board.cb {
@@ -92,13 +92,13 @@ html, body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(108px) translateY(-92px) rotateZ(-43deg);
+  transform: translateX(83px) translateY(-139px) rotateZ(-43deg);
 }
 .left-line {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(-104px) translateY(-122px) rotateZ(-135deg);
+  transform: translateX(-151px) translateY(-122px) rotateZ(-135deg);
 }
 .center {
   width: 100px;
@@ -195,8 +195,8 @@ to {
 }
 .rotate-cell .split {
     background-color: #55E2F9;
-    width: 400px;
-    height: 6px;
+    width: 308px;
+    height: 5px;
     border-radius: 100%;
     box-shadow: 0px 0px 20px 0px #55E2F9;
     display: flex;
@@ -208,36 +208,36 @@ to {
       width: 13px;
       height: 13px;
       background-color: #03afdf;
-      animation: slippage 2s linear 0s infinite alternate;
+      animation: slippage 3s linear 0s infinite alternate;
 }
 .rotate-cell .tag {
     color: #07313c;
-    width: 220px;
-    height: 110px;
+    width: 125px;
+    height: 80px;
     font-size: 16px;
     text-align: center;
-    border: 6px solid #58dee9;
+    border: 4px solid #58dee9;
     background-color: #03afdf;
     margin-left: 15px;
     white-space: nowrap;
     font-weight: bold;
-    line-height: 100px;
+    line-height: 80px;
 }
 @keyframes slippage {
 0% {
     transform: translateX(0);
 }
 25% {
-    transform: translateX(50px);
+    transform: translateX(77px);
 }
 50% {
-    transform: translateX(100px);
+    transform: translateX(154px);
 }
 75% {
-    transform: translateX(150px);
+    transform: translateX(231px);
 }
 100% {
-    transform: translateX(200px);
+    transform: translateX(308px);
 }
 }
 
@@ -257,7 +257,7 @@ to {
 }
 .bottom-cell .b-split {
     background-color: #55E2F9;
-    width: 500px;
+    width: 360px;
     height: 6px;
     border-radius: 100%;
     box-shadow: 0px 0px 20px 0px #55E2F9;
@@ -268,8 +268,8 @@ to {
 .bottom-cell .b-ball {
     display: inline-block;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     background-color: #74feff;
     animation: bslippage 5s linear 0s infinite alternate;
     position: absolute;
@@ -294,16 +294,16 @@ to {
     transform: translateX(0);
 }
 25% {
-    transform: translateX(125px);
+    transform: translateX(90px);
 }
 50% {
-    transform: translateX(250px);
+    transform: translateX(180px);
 }
 75% {
-    transform: translateX(375px);
+    transform: translateX(270px);
 }
 100% {
-    transform: translateX(500px);
+    transform: translateX(360px);
 }
 }
 
@@ -321,7 +321,7 @@ to {
     width: 100%;
     height: 100%;
     transform-origin: center center;
-    animation: fade 10s linear 0s infinite  alternate;
+    animation: fade 20s linear 0s infinite  alternate;
     opacity: 0.1;
     box-shadow: 0px 0px 20px 0px #55E2F9;
 }

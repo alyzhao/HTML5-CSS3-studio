@@ -44,7 +44,7 @@
 			width: 100%;
 			height: 100%;
 			transform-origin: center center;
-			animation: fade 10s linear 0s infinite  alternate;
+			animation: fade 20s linear 0s infinite  alternate;
 			opacity: 0.1;
 			box-shadow: 0px 0px 20px 0px #55E2F9;
 		}

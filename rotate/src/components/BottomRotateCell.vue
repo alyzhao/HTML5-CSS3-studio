@@ -26,7 +26,7 @@
 		margin-top: -25px;
 		.b-split {
 			background-color: #55E2F9;
-			width: 500px;
+			width: 360px;
 			height: 6px;
 			border-radius: 100%;
 			box-shadow: 0px 0px 20px 0px #55E2F9;
@@ -37,8 +37,8 @@
 		.b-ball {
 			display: inline-block;
 		    border-radius: 50%;
-		    width: 20px;
-		    height: 20px;
+		    width: 15px;
+		    height: 15px;
 		    background-color: #74feff;
 		    animation: bslippage 5s linear 0s infinite alternate;
 		    position: absolute;
@@ -61,9 +61,9 @@
 	}
 	@keyframes bslippage {
 		0% {transform: translateX(0);}
-		25% {transform: translateX(125px);}
-		50% {transform: translateX(250px);}
-		75% {transform: translateX(375px);}
-		100% {transform: translateX(500px);}
+		25% {transform: translateX(90px);}
+		50% {transform: translateX(180px);}
+		75% {transform: translateX(270px);}
+		100% {transform: translateX(360px);}
 	}
 </style>

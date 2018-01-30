@@ -16,10 +16,10 @@
 			</div>
 			<div class="right-img"></div>
 			<div class="right-line">
-				<extend-line :width="360" :height="20"></extend-line>
+				<extend-line :width="320" :height="20"></extend-line>
 			</div>
 			<div class="left-line">
-				<extend-line :width="400" :height="20"></extend-line>
+				<extend-line :width="480" :height="20"></extend-line>
 			</div>
 			<div v-if="centerShow && centerContent.name" class="left-board cb">
 				<div class="split-left"></div>
@@ -47,8 +47,8 @@
 		</div>
 		<div class="center"
 			:style="'z-index: -1;transform: translateZ(-200px) rotateX(65deg) rotateY(-15deg) rotateZ(' + rotateBottomAngle + 'deg)'">
-			<div v-for="n in 100" class="scale" 
-				:style="'transform: translateY(-100px) translateX(3px) translateZ(' + (-n * 2 - 150) + 'px)'">
+			<div v-for="n in 230" class="scale" 
+				:style="'transform: translateY(-100px) translateX(12px) translateZ(' + (-n * 2 - 150) + 'px)'">
 			</div>
 			<div class="bottom-round">
 				<div class="rdb"></div>
@@ -244,15 +244,15 @@
 		height: 100%;
 	}
 	.center-img {
-	    width: 760px;
-	    height: 480px;
+	    width: 1000px;
+	    height: 580px;
 	    position: absolute;
 	    top: 50%;
 	    left: 50%;
-	    margin-top: -220px;
-	    margin-left: -380px;
+	    margin-top: -290px;
+	    margin-left: -500px;
 		background: transparent url('../assets/img/center.png') no-repeat;
-		background-size: 760px;
+		background-size: 1000px;
 		z-index: 2;
 		transform-style: preserve-3d;
 	}
@@ -268,7 +268,7 @@
 	.left-board {
 		border-radius: 5px;
 		border: 2px solid #75f1ff;
-		transform: translate3d(-521px, -230px, 0) rotateY(30deg) translateZ(-280px);
+		transform: translate3d(-655px, -180px, 0) rotateY(10deg) translateZ(-255px);
 		user-select: none;
 		&.cb {
 			width: 300px;
@@ -318,13 +318,13 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translateX(108px) translateY(-92px) rotateZ(-43deg);
+		transform: translateX(83px) translateY(-139px) rotateZ(-43deg);
 	}
 	.left-line {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translateX(-104px) translateY(-122px) rotateZ(-135deg);
+		transform: translateX(-151px) translateY(-122px) rotateZ(-135deg);
 	}
 	.center {
 		width: 100px;
