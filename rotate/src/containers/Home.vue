@@ -19,7 +19,7 @@
 				<extend-line :width="180" :height="10"></extend-line>
 			</div>
 			<div class="left-line">
-				<extend-line :width="220" :height="10"></extend-line>
+				<extend-line :width="200" :height="10"></extend-line>
 			</div>
 			<div v-if="centerShow && centerContent.name" class="left-board cb">
 				<div class="split-left"></div>
@@ -47,7 +47,9 @@
 		</div>
 		<div class="center"
 			:style="'z-index: -1;transform: translateZ(-200px) rotateX(65deg) rotateY(-15deg) rotateZ(' + rotateBottomAngle + 'deg)'">
-			<!-- <div v-for="n in 40" class="scale" :style="'transform: translateY(-100px) translateX(-5px) translateZ(' + (-n * 5 - 150) + 'px)'"></div> -->
+			<div v-for="n in 100" class="scale" 
+				:style="'transform: translateY(-100px) translateX(3px) translateZ(' + (-n * 2 - 150) + 'px)'">
+			</div>
 			<div class="bottom-round">
 				<div class="rdb"></div>
 				<bottom-rotate-cell v-for="(item, index) in bDatas"
@@ -322,7 +324,7 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translateX(-34px) translateY(-56px) rotateZ(-135deg);
+		transform: translateX(-52px) translateY(-61px) rotateZ(-135deg);
 	}
 	.center {
 		width: 100px;
@@ -341,15 +343,15 @@
 		    width: 1025px;
 		    height: 644px;
 		    transform: translateX(-500px) translateY(-600px);
-		    background: radial-gradient(ellipse at top left, rgba(222, 11, 70, 0.26) -160%, rgba(255, 255, 255, 0) 103%), -webkit-radial-gradient(center, ellipse cover, #0C1019 0%, #0B0B0E 100%);
+		    background: #000;
 		    border-radius: 50% 50% 0 0;
 		}
 		&.drag {
 			transition-duration: 0 !important;
 		}
 		.scale {
-			width: 20px;
-		    height: 20px;
+			width: 5px;
+		    height: 5px;
 		    top: 50%;
 		    left: 50%;
 		    margin-top: -10px;
@@ -358,6 +360,8 @@
 		    box-shadow: 0px 0px 55px 7px #00d9fd;
 		    position: absolute;
 		    border-radius: 50%;
+		    opacity: .3;
+		    animation: btfade 2s linear 0s infinite alternate;
 		}
 		.bottom-round {
 			border-radius: 50%;
@@ -377,10 +381,14 @@
 				top: 50%;
 				left: 50%;
 				transform: translateX(-50%) translateY(-50%);
-				background-color: #0B0B0E;
+				background-color: #000;
 				border-radius: 50%;
 			}
 		}
+	}
+	@keyframes btfade {
+		from { opacity: 0.3 }
+		to { opacity: .8 }
 	}
 	@keyframes delay {
 		0% {opacity: 0;}
