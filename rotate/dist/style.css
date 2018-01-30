@@ -19,31 +19,31 @@ html, body {
   height: 100%;
 }
 .center-img {
-  width: 380px;
-  height: 240px;
+  width: 760px;
+  height: 480px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -110px;
-  margin-left: -190px;
+  margin-top: -220px;
+  margin-left: -380px;
   background: transparent url(./images/center.271645a.png) no-repeat;
-  background-size: 380px;
+  background-size: 760px;
   z-index: 2;
   transform-style: preserve-3d;
 }
 .left-img {
-  width: 200px;
-  height: 100px;
+  width: 400px;
+  height: 200px;
   position: absolute;
   background: transparent url(./images/left-img.ce85d6c.png) no-repeat;
-  background-size: 200px;
-  top: -170px;
-  left: -80px;
+  background-size: 400px;
+  top: -340px;
+  left: -160px;
 }
 .left-board {
   border-radius: 5px;
   border: 2px solid #75f1ff;
-  transform: translate3d(-200px, -115px, 0) rotateY(30deg) translateZ(-280px);
+  transform: translate3d(-521px, -230px, 0) rotateY(30deg) translateZ(-280px);
   user-select: none;
 }
 .left-board.cb {
@@ -80,25 +80,25 @@ html, body {
         font-size: 18px;
 }
 .right-img {
-  width: 180px;
-  height: 170px;
+  width: 360px;
+  height: 340px;
   position: absolute;
   background: transparent url(./images/right-img.0cdc64a.png) no-repeat;
-  background-size: 170px;
-  top: -170px;
-  left: 330px;
+  background-size: 360px;
+  top: -340px;
+  left: 660px;
 }
 .right-line {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(54px) translateY(-46px) rotateZ(-43deg);
+  transform: translateX(108px) translateY(-92px) rotateZ(-43deg);
 }
 .left-line {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(-52px) translateY(-61px) rotateZ(-135deg);
+  transform: translateX(-104px) translateY(-122px) rotateZ(-135deg);
 }
 .center {
   width: 100px;
@@ -115,9 +115,9 @@ html, body {
 .center .op {
     opacity: 0.8;
     filter: blur(58px);
-    width: 1025px;
-    height: 644px;
-    transform: translateX(-500px) translateY(-600px);
+    width: 2050px;
+    height: 1288px;
+    transform: translateX(-1000px) translateY(-1200px);
     background: #000;
     border-radius: 50% 50% 0 0;
 }
@@ -141,18 +141,18 @@ html, body {
 .center .bottom-round {
     border-radius: 50%;
     background-color: #77d0e8;
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -100px;
-    margin-left: -100px;
-    transform: translateZ(-380px) translateY(-140px);
+    margin-top: -200px;
+    margin-left: -200px;
+    transform: translateZ(-760px) translateY(-280px);
 }
 .center .bottom-round .rdb {
-      width: 165px;
-      height: 165px;
+      width: 330px;
+      height: 330px;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -189,14 +189,14 @@ to {
   justify-content: center;
   transform-origin: left center;
   top: 50%;
-  padding-left: 125px;
+  padding-left: 250px;
   user-select: none;
   cursor: pointer;
 }
 .rotate-cell .split {
     background-color: #55E2F9;
-    width: 200px;
-    height: 3px;
+    width: 400px;
+    height: 6px;
     border-radius: 100%;
     box-shadow: 0px 0px 20px 0px #55E2F9;
     display: flex;
@@ -212,16 +212,16 @@ to {
 }
 .rotate-cell .tag {
     color: #07313c;
-    width: 110px;
-    height: 55px;
+    width: 220px;
+    height: 110px;
     font-size: 16px;
     text-align: center;
-    border: 3px solid #58dee9;
+    border: 6px solid #58dee9;
     background-color: #03afdf;
     margin-left: 15px;
     white-space: nowrap;
     font-weight: bold;
-    line-height: 50px;
+    line-height: 100px;
 }
 @keyframes slippage {
 0% {
@@ -251,14 +251,14 @@ to {
   transform-origin: left center;
   top: 50%;
   user-select: none;
-  padding-left: 100px;
+  padding-left: 200px;
   height: 50px;
   margin-top: -25px;
 }
 .bottom-cell .b-split {
     background-color: #55E2F9;
-    width: 250px;
-    height: 3px;
+    width: 500px;
+    height: 6px;
     border-radius: 100%;
     box-shadow: 0px 0px 20px 0px #55E2F9;
     display: flex;
@@ -268,12 +268,12 @@ to {
 .bottom-cell .b-ball {
     display: inline-block;
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: #74feff;
     animation: bslippage 5s linear 0s infinite alternate;
     position: absolute;
-    left: 100px;
+    left: 200px;
 }
 .bottom-cell .b-tag {
     color: #333;
@@ -285,25 +285,25 @@ to {
     white-space: nowrap;
     font-weight: bold;
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
+    width: 140px;
+    height: 140px;
+    line-height: 140px;
 }
 @keyframes bslippage {
 0% {
     transform: translateX(0);
 }
 25% {
-    transform: translateX(62px);
-}
-50% {
     transform: translateX(125px);
 }
+50% {
+    transform: translateX(250px);
+}
 75% {
-    transform: translateX(188px);
+    transform: translateX(375px);
 }
 100% {
-    transform: translateX(250px);
+    transform: translateX(500px);
 }
 }
 

@@ -21,13 +21,13 @@
 		transform-origin: left center;
 		top: 50%;
 		user-select: none;
-		padding-left: 100px;
+		padding-left: 200px;
 		height: 50px;
 		margin-top: -25px;
 		.b-split {
 			background-color: #55E2F9;
-			width: 250px;
-			height: 3px;
+			width: 500px;
+			height: 6px;
 			border-radius: 100%;
 			box-shadow: 0px 0px 20px 0px #55E2F9;
 			display: flex;
@@ -37,12 +37,12 @@
 		.b-ball {
 			display: inline-block;
 		    border-radius: 50%;
-		    width: 10px;
-		    height: 10px;
+		    width: 20px;
+		    height: 20px;
 		    background-color: #74feff;
 		    animation: bslippage 5s linear 0s infinite alternate;
 		    position: absolute;
-		    left: 100px;
+		    left: 200px;
 		}
 		.b-tag {
 			color: #333;
@@ -54,16 +54,16 @@
 		    white-space: nowrap;
 		    font-weight: bold;
 		    border-radius: 50%;
-		    width: 70px;
-		    height: 70px;
-		    line-height: 70px;
+		    width: 140px;
+		    height: 140px;
+		    line-height: 140px;
 		}
 	}
 	@keyframes bslippage {
 		0% {transform: translateX(0);}
-		25% {transform: translateX(62px);}
-		50% {transform: translateX(125px);}
-		75% {transform: translateX(188px);}
-		100% {transform: translateX(250px);}
+		25% {transform: translateX(125px);}
+		50% {transform: translateX(250px);}
+		75% {transform: translateX(375px);}
+		100% {transform: translateX(500px);}
 	}
 </style>

@@ -19,13 +19,13 @@
 		justify-content: center;
 		transform-origin: left center;
 		top: 50%;
-		padding-left: 125px;
+		padding-left: 250px;
 		user-select: none;
 		cursor: pointer;
 		.split {
 			background-color: #55E2F9;
-			width: 200px;
-			height: 3px;
+			width: 400px;
+			height: 6px;
 			border-radius: 100%;
 			box-shadow: 0px 0px 20px 0px #55E2F9;
 			display: flex;
@@ -41,16 +41,16 @@
 		}
 		.tag {
 			color: #07313c;
-			width: 110px;
-			height: 55px;
+			width: 220px;
+			height: 110px;
 			font-size: 16px;
 			text-align: center;
-			border: 3px solid #58dee9;
+			border: 6px solid #58dee9;
 			background-color: #03afdf;
 			margin-left: 15px;
 			white-space: nowrap;
 			font-weight: bold;
-			line-height: 50px;
+			line-height: 100px;
 		}
 	}
 	@keyframes slippage {

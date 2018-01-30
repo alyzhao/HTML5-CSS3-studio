@@ -16,10 +16,10 @@
 			</div>
 			<div class="right-img"></div>
 			<div class="right-line">
-				<extend-line :width="180" :height="10"></extend-line>
+				<extend-line :width="360" :height="20"></extend-line>
 			</div>
 			<div class="left-line">
-				<extend-line :width="200" :height="10"></extend-line>
+				<extend-line :width="400" :height="20"></extend-line>
 			</div>
 			<div v-if="centerShow && centerContent.name" class="left-board cb">
 				<div class="split-left"></div>
@@ -244,31 +244,31 @@
 		height: 100%;
 	}
 	.center-img {
-	    width: 380px;
-	    height: 240px;
+	    width: 760px;
+	    height: 480px;
 	    position: absolute;
 	    top: 50%;
 	    left: 50%;
-	    margin-top: -110px;
-	    margin-left: -190px;
+	    margin-top: -220px;
+	    margin-left: -380px;
 		background: transparent url('../assets/img/center.png') no-repeat;
-		background-size: 380px;
+		background-size: 760px;
 		z-index: 2;
 		transform-style: preserve-3d;
 	}
 	.left-img {
-		width: 200px;
-		height: 100px;
+		width: 400px;
+		height: 200px;
 		position: absolute;
 		background: transparent url('../assets/img/left-img.png') no-repeat;
-		background-size: 200px;
-		top: -170px;
-		left: -80px;
+		background-size: 400px;
+		top: -340px;
+		left: -160px;
 	}
 	.left-board {
 		border-radius: 5px;
 		border: 2px solid #75f1ff;
-		transform: translate3d(-200px, -115px, 0) rotateY(30deg) translateZ(-280px);
+		transform: translate3d(-521px, -230px, 0) rotateY(30deg) translateZ(-280px);
 		user-select: none;
 		&.cb {
 			width: 300px;
@@ -306,25 +306,25 @@
 		}
 	}
 	.right-img {
-		width: 180px;
-	    height: 170px;
+		width: 360px;
+	    height: 340px;
 	    position: absolute;
 	    background: transparent url('../assets/img/right-img.png') no-repeat;
-	    background-size: 170px;
-	    top: -170px;
-	    left: 330px;
+	    background-size: 360px;
+	    top: -340px;
+	    left: 660px;
 	}
 	.right-line {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translateX(54px) translateY(-46px) rotateZ(-43deg);
+		transform: translateX(108px) translateY(-92px) rotateZ(-43deg);
 	}
 	.left-line {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translateX(-52px) translateY(-61px) rotateZ(-135deg);
+		transform: translateX(-104px) translateY(-122px) rotateZ(-135deg);
 	}
 	.center {
 		width: 100px;
@@ -340,9 +340,9 @@
 		.op {
 			opacity: 0.8;
 		    filter: blur(58px);
-		    width: 1025px;
-		    height: 644px;
-		    transform: translateX(-500px) translateY(-600px);
+		    width: 2050px;
+		    height: 1288px;
+		    transform: translateX(-1000px) translateY(-1200px);
 		    background: #000;
 		    border-radius: 50% 50% 0 0;
 		}
@@ -366,17 +366,17 @@
 		.bottom-round {
 			border-radius: 50%;
 			background-color: #77d0e8;
-			width: 200px;
-			height: 200px;
+			width: 400px;
+			height: 400px;
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			margin-top: -100px;
-			margin-left: -100px;
-			transform: translateZ(-380px) translateY(-140px);
+			margin-top: -200px;
+			margin-left: -200px;
+			transform: translateZ(-760px) translateY(-280px);
 			.rdb {
-				width: 165px;
-				height: 165px;
+				width: 330px;
+				height: 330px;
 				position: absolute;
 				top: 50%;
 				left: 50%;
