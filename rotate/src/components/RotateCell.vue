@@ -19,7 +19,7 @@
 		justify-content: center;
 		transform-origin: left center;
 		top: 50%;
-		padding-left: 250px;
+		padding-left: 280px;
 		user-select: none;
 		cursor: pointer;
 		.split {

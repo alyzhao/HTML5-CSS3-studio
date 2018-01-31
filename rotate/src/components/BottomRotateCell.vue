@@ -47,7 +47,7 @@
 		.b-tag {
 			color: #333;
 		    opacity: .8;
-		    font-size: 14px;
+		    font-size: 30px;
 		    text-align: center;
 		    background-color: #9de0f3;
 		    margin-left: 5px;

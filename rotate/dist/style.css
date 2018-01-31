@@ -37,18 +37,19 @@ html, body {
   position: absolute;
   background: transparent url(./images/left-img.ce85d6c.png) no-repeat;
   background-size: 400px;
-  top: -340px;
-  left: -160px;
+  top: -305px;
+  left: -135px;
 }
 .left-board {
   border-radius: 5px;
   border: 2px solid #75f1ff;
-  transform: translate3d(-655px, -180px, 0) rotateY(10deg) translateZ(-255px);
+  transform: translate3d(-370px, -25px, 0) rotateY(5deg) translateZ(1px);
   user-select: none;
+  width: 300px;
 }
 .left-board.cb {
     width: 300px;
-    transform: translate3d(101px, 403px, 0) rotateY(48deg) translateZ(-330px);
+    transform: translate3d(67px, 1058px, 0) rotateY(11deg) translateZ(-150px);
     animation: delay 3s linear;
 }
 .left-board .split-left {
@@ -70,14 +71,16 @@ html, body {
 .left-board .con p {
       margin: 0;
       text-align: left;
-      padding: 5px 33px;
+      padding: 10px 33px;
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 230px;
+      font-size: 22px;
 }
 .left-board .con p .icon {
         flex-grow: .5;
-        font-size: 18px;
+        font-size: 30px;
 }
 .right-img {
   width: 360px;
@@ -189,7 +192,7 @@ to {
   justify-content: center;
   transform-origin: left center;
   top: 50%;
-  padding-left: 250px;
+  padding-left: 280px;
   user-select: none;
   cursor: pointer;
 }
@@ -278,7 +281,7 @@ to {
 .bottom-cell .b-tag {
     color: #333;
     opacity: .8;
-    font-size: 14px;
+    font-size: 30px;
     text-align: center;
     background-color: #9de0f3;
     margin-left: 5px;

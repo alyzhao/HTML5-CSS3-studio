@@ -19,7 +19,7 @@
 				<extend-line :width="320" :height="20"></extend-line>
 			</div>
 			<div class="left-line">
-				<extend-line :width="480" :height="20"></extend-line>
+				<extend-line :width="439" :height="20"></extend-line>
 			</div>
 			<div v-if="centerShow && centerContent.name" class="left-board cb">
 				<div class="split-left"></div>
@@ -262,17 +262,18 @@
 		position: absolute;
 		background: transparent url('../assets/img/left-img.png') no-repeat;
 		background-size: 400px;
-		top: -340px;
-		left: -160px;
+		top: -305px;
+		left: -135px;
 	}
 	.left-board {
 		border-radius: 5px;
 		border: 2px solid #75f1ff;
-		transform: translate3d(-655px, -180px, 0) rotateY(10deg) translateZ(-255px);
+		transform: translate3d(-370px, -25px, 0) rotateY(5deg) translateZ(1px);
 		user-select: none;
+		width: 300px;
 		&.cb {
 			width: 300px;
-			transform: translate3d(101px, 403px, 0) rotateY(48deg) translateZ(-330px);
+			transform: translate3d(67px, 1058px, 0) rotateY(11deg) translateZ(-150px);
 			animation: delay 3s linear;
 		}
 		.split-left {
@@ -294,13 +295,15 @@
 			p {
 				margin: 0;
 			    text-align: left;
-			    padding: 5px 33px;
+			    padding: 10px 33px;
 			    display: flex;
 			    align-items: center;
 			    justify-content: center;
+			    width: 230px;
+			    font-size: 22px;
 			    .icon {
 			    	flex-grow: .5;
-			    	font-size: 18px;
+			    	font-size: 30px;
 			    }
 			}
 		}
