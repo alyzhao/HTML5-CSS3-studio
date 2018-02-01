@@ -159,7 +159,7 @@
 		},
 		mounted() {
 			this.$nextTick(function() {
-
+				
 			})
 		},
 		methods: {
