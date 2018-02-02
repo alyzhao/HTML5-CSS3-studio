@@ -41,6 +41,7 @@
 				:name="item.name"
 				:value="item.value"
 				:style="'transform: translateY(-50%) rotateZ(' + anguleInterval * index + 'deg)'"
+				:warning="item.warning"
 				@click.native="clickRotate(index, $event)"
 				@mousedown.native="msDownRotate($event)">
 			</rotate-cell>
@@ -50,11 +51,12 @@
 			<div v-for="n in 230" class="scale" 
 				:style="'transform: translateY(-100px) translateX(12px) translateZ(' + (-n * 2 - 150) + 'px)'">
 			</div>
-			<div class="bottom-round">
+			<div class="bottom-round" :style="'transform: translateZ(-760px) translateY(-280px) rotateZ(' + bRotateAngle + 'deg)'">
 				<div class="rdb"></div>
 				<bottom-rotate-cell v-for="(item, index) in bDatas"
 					:key="item.name"
 					:value="item.value"
+					:warning="item.warning"
 					:style="'transform: rotateZ(' + bAnguleInterval * index + 'deg)'">
 				</bottom-rotate-cell>
 			</div>
@@ -127,7 +129,8 @@
 					value: '教育厅'
 				}, {
 					name: 2,
-					value: '工商局'
+					value: '工商局',
+					warning: false
 				}, {
 					name: 3,
 					value: '国土局'
@@ -154,12 +157,38 @@
 				coordinateEnd: null,
 				rotateBottomAngle: 0,
 				centerShow: false,
-				centerContent: null
+				centerContent: null,
+				bRotateAngle: 0
 			}
 		},
 		mounted() {
+			console.log('fuck');
 			this.$nextTick(function() {
-				
+				console.log('fuck');
+				setTimeout(() => {
+					this.bDatas[6].warning = true;
+					let _index = [];
+					let res = this.bDatas.filter((item, index) => {
+						if (item.warning) {
+							_index.push(index);
+							return true;
+						} else {
+							return false;
+						}
+					});
+					let deg = 90 - _index[0] * this.bAnguleInterval;
+					this.bDatas[_index[0]].value += '( 警告警告！！！！！！)'
+					this.bRotateAngle = deg;
+					console.log(this.bDatas);
+
+
+					this.datas[7].warning = true;
+
+					this.rotateAngle = 90 - 7 * this.anguleInterval;
+
+					this.datas[7].value += ' (警告警告！！！！！！)';
+
+				}, 5000)
 			})
 		},
 		methods: {
@@ -218,6 +247,22 @@
 			},
 			transformCoor(arrCoor) {
 
+			}
+		},
+		watch: {
+			bDatas: function(value) {
+				let _index = [];
+				let res = this.bDatas.filter((item, index) => {
+					if (item.warning) {
+						_index.push(index);
+						return true;
+					} else {
+						return false;
+					}
+				});
+				console.log(res);
+				console.log(_index);
+				console.log('..............')
 			}
 		},
 		computed: {
@@ -376,7 +421,7 @@
 			left: 50%;
 			margin-top: -200px;
 			margin-left: -200px;
-			transform: translateZ(-760px) translateY(-280px);
+			transition: all ease 0.3s;
 			.rdb {
 				width: 330px;
 				height: 330px;

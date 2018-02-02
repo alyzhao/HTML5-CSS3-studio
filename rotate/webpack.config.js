@@ -73,7 +73,7 @@ module.exports = {
             index:'/index.html'
         },
 		contentBase: './',
-		publicPath: '/dist/',
+		publicPath: '/',
 		hot: true
 	},
 	plugins: [

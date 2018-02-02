@@ -2,12 +2,12 @@
 	<div class="bottom-cell">
 		<div class="b-split"></div>
 		<i class="b-ball" :style="'animation-delay: ' + Math.random().toFixed(2) * 4 + 's'"></i>
-		<div class="b-tag" :name="name">{{value}}</div>
+		<div class="b-tag" :class="{ 'warning': warning}" :name="name">{{value}}</div>
 	</div>
 </template>
 <script>
 	export default {
-		props: ['name', 'value']
+		props: ['name', 'value', 'warning', 'rotateDeg']
 	}
 </script>
 <style lang="scss">
@@ -57,6 +57,9 @@
 		    width: 140px;
 		    height: 140px;
 		    line-height: 140px;
+		    &.warning {
+		    	background-color: #ea4141;
+		    }
 		}
 	}
 	@keyframes bslippage {

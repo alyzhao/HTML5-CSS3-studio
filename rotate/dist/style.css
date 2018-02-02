@@ -151,7 +151,7 @@ html, body {
     left: 50%;
     margin-top: -200px;
     margin-left: -200px;
-    transform: translateZ(-760px) translateY(-280px);
+    transition: all ease 0.3s;
 }
 .center .bottom-round .rdb {
       width: 330px;
@@ -226,6 +226,9 @@ to {
     font-weight: bold;
     line-height: 80px;
 }
+.rotate-cell .tag.warning {
+      background-color: #ea4141;
+}
 @keyframes slippage {
 0% {
     transform: translateX(0);
@@ -291,6 +294,9 @@ to {
     width: 140px;
     height: 140px;
     line-height: 140px;
+}
+.bottom-cell .b-tag.warning {
+      background-color: #ea4141;
 }
 @keyframes bslippage {
 0% {

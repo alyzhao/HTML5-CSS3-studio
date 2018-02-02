@@ -1,12 +1,12 @@
 <template>
 	<div class="rotate-cell" @click="">
 		<div class="split"><i class="ball" :style="'animation-delay: ' + Math.random().toFixed(2) * 4 + 's'"></i></div>
-		<div class="tag" :name="name">{{value}}</div>
+		<div class="tag" :name="name" :class="{ 'warning': warning}">{{value}}</div>
 	</div>
 </template>
 <script>
 	export default {
-		props: ['name', 'value']
+		props: ['name', 'value', 'warning']
 	}
 </script>
 <style lang="scss">
@@ -51,6 +51,9 @@
 			white-space: nowrap;
 			font-weight: bold;
 			line-height: 80px;
+			&.warning {
+				background-color: #ea4141;
+			}
 		}
 	}
 	@keyframes slippage {
