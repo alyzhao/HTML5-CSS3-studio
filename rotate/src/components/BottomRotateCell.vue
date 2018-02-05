@@ -1,5 +1,5 @@
 <template>
-	<div class="bottom-cell">
+	<div class="bottom-cell" style="">
 		<div class="b-split"></div>
 		<i class="b-ball" :style="'animation-delay: ' + Math.random().toFixed(2) * 4 + 's'"></i>
 		<div class="b-tag" :class="{ 'warning': warning}" :name="name">{{value}}</div>
