@@ -1,5 +1,5 @@
 <template>
-	<div class="rotate-cell" @click="">
+	<div class="rotate-cell">
 		<div class="split"><i class="ball" :style="'animation-delay: ' + Math.random().toFixed(2) * 4 + 's'"></i></div>
 		<div class="tag" :name="name" :class="{ 'warning': warning}">{{value}}</div>
 	</div>
@@ -41,7 +41,7 @@
 		}
 		.tag {
 			color: #07313c;
-			width: 125px;
+			width: 190px;
 			height: 80px;
 			font-size: 16px;
 			text-align: center;
@@ -51,6 +51,7 @@
 			white-space: nowrap;
 			font-weight: bold;
 			line-height: 80px;
+			overflow: hidden;
 			&.warning {
 				background-color: #ea4141;
 			}

@@ -3,7 +3,7 @@
 		@mousemove="moveRotate($event)"
 		@mousedown="unShow()"
 		@mouseup="msUpRotate($event)">
-		<div class="center-img">
+		<div class="center-img" style="transform: scale3d(.6, .6, .6)">
 			<div class="left-img">
 				<div class="left-board">
 					<div class="split-left"></div>
@@ -21,25 +21,25 @@
 			<div class="left-line">
 				<extend-line :width="439" :height="20"></extend-line>
 			</div>
-			<div v-if="centerShow && centerContent.orgName" class="left-board cb">
+			<div v-if="centerShow" class="left-board cb">
 				<div class="split-left"></div>
 				<div class="con">
-					<p><i class="icon icon-people"></i>{{centerContent.dataElementCount}}</p>
-					<p><i class="icon icon-company"></i>{{centerContent.dataUseCount}}</p>
-					<p><i class="icon icon-other"></i>{{centerContent.dataSupplyCount}}</p>
+					<p><i class="icon icon-people"></i>{{centerContent.value}}</p>
+					<p><i class="icon icon-company"></i>{{centerContent.value}}</p>
+					<p><i class="icon icon-other"></i>{{centerContent.value}}</p>
 				</div>
 			</div>
 		</div>
-		<div class="center" style="transform: translateZ(-200px) rotateX(66deg) rotateY(-15deg) rotateZ(0deg);z-index: 1;">
+		<div class="center" style="transform: translateZ(-200px) rotateX(66deg) rotateY(-15deg) rotateZ(0deg);z-index: 1; scale3d(.7, .7, .7)">
 			<div class="op"></div>
 		</div>
 		<div class="center" ref="center_el"
 			:class="{ drag: dragAble }"
-			:style="'transform: translateZ(-200px) rotateX(66deg) rotateY(-15deg) rotateZ(' + rotateAngle + 'deg)'">
+			:style="'transform: translateZ(-200px) rotateX(66deg) rotateY(-15deg) rotateZ(' + rotateAngle + 'deg)  scale3d(.7, .7, .7)'">
 			<rotate-cell v-for="(item, index) in datas"
-				:key="index + 'ex'"
-				:name="item.orgName"
-				:value="item.orgName"
+				:key="item.name"
+				:name="item.name"
+				:value="item.value"
 				:style="'transform: translateY(-50%) rotateZ(' + anguleInterval * index + 'deg)'"
 				:warning="item.warning"
 				@click.native="clickRotate(index, $event)"
@@ -47,11 +47,11 @@
 			</rotate-cell>
 		</div>
 		<div class="center"
-			:style="'z-index: -1;transform: translateZ(-200px) rotateX(65deg) rotateY(-15deg) rotateZ(' + rotateBottomAngle + 'deg)'">
+			:style="'z-index: -1;transform: translateZ(-200px) rotateX(65deg) rotateY(-15deg) rotateZ(' + rotateBottomAngle + 'deg)  scale3d(.7, .7, .7)'">
 			<div v-for="n in 230" class="scale" 
 				:style="'transform: translateY(-100px) translateX(12px) translateZ(' + (-n * 2 - 150) + 'px)'">
 			</div>
-			<div class="bottom-round" :style="'transform: translateZ(-760px) translateY(-280px) rotateZ(' + bRotateAngle + 'deg)'">
+			<div class="bottom-round" :style="'transform: translateZ(-760px) translateY(-280px) rotateZ(' + bRotateAngle + 'deg)  scale3d(.7, .7, .7)'">
 				<div class="rdb"></div>
 				<bottom-rotate-cell v-for="(item, index) in bDatas"
 					:key="item.name"
@@ -72,35 +72,61 @@
 		name: 'Home',
 		data() {
 			return {
-				datas: [],
-				bDatas: [{
+				datas: [{
 					name: 0,
-					value: '公安局'
+					value: '12345'
 				}, {
 					name: 1,
-					value: '教育厅'
+					value: '大调研'
 				}, {
 					name: 2,
-					value: '工商局',
+					value: '渣土'
+				}, {
+					name: 3,
+					value: '危化品'
+				}, {
+					name: 4,
+					value: '群租'
+				}, {
+					name: 5,
+					value: '大客流'
+				}, {
+					name: 6,
+					value: ''
+				}, {
+					name: 7,
+					value: '',
+				}, {
+					name: 8
+				}, {
+					name: 9,
+					value: ''
+				}],
+				bDatas: [{
+					name: 0,
+					value: ''
+				}, {
+					name: 1,
+					value: ''
+				}, {
+					name: 2,
+					value: '',
 					warning: false
 				}, {
 					name: 3,
-					value: '国土局'
+					value: ''
 				}, {
 					name: 4,
-					value: '税务局'
+					value: ''
 				}, {
 					name: 5,
-					value: '人社厅'
+					value: ''
 				}, {
 					name: 6,
-					value: 'qqq'
+					value: ''
 				}, {
 					name: 7,
-					value: 'rrr'
-				}, {
-					name: 8,
-					value: 'ttt'
+					value: ''
 				}],
 				rotateAngle: 0,
 				dragAble: false,
@@ -114,45 +140,38 @@
 			}
 		},
 		mounted() {
-			this.$nextTick(function() {
-				this.loadData();
-
-				// setTimeout(() => {
-				// 	this.bDatas[6].warning = true;
-				// 	let _index = [];
-				// 	let res = this.bDatas.filter((item, index) => {
-				// 		if (item.warning) {
-				// 			_index.push(index);
-				// 			return true;
-				// 		} else {
-				// 			return false;
-				// 		}
-				// 	});
-				// 	let deg = 90 - _index[0] * this.bAnguleInterval;
-				// 	this.bDatas[_index[0]].value += '( 警告警告！！！！！！)'
-				// 	this.bRotateAngle = deg;
-				// 	console.log(this.bDatas);
+			// this.$nextTick(function() {
+			// 	setTimeout(() => {
+			// 		this.bDatas[6].warning = true;
+			// 		let _index = [];
+			// 		let res = this.bDatas.filter((item, index) => {
+			// 			if (item.warning) {
+			// 				_index.push(index);
+			// 				return true;
+			// 			} else {
+			// 				return false;
+			// 			}
+			// 		});
+			// 		let deg = 90 - _index[0] * this.bAnguleInterval;
+			// 		this.bRotateAngle = deg;
+			// 		console.log(this.bDatas);
 
 
-				// 	this.datas[7].warning = true;
+			// 		this.datas[7].warning = true;
 
-				// 	this.rotateAngle = 90 - 7 * this.anguleInterval;
-
-				// 	this.datas[7].value += ' (警告警告！！！！！！)';
-
-				// }, 5000)
-			})
+			// 		this.rotateAngle = 90 - 7 * this.anguleInterval;
+			// 	}, 5000)
+			// })
 		},
 		methods: {
 			clickRotate(index, e) {
-				console.log('click');
 				e.preventDefault();
 				e.stopPropagation();
 				let rotation = 90 - index * this.anguleInterval
 				this.rotateAngle = rotation;
 				this.centerShow = true;
 				this.centerContent = this.datas[index];
-				console.log(this.datas);
+				console.log(this.centerShow);
 				console.log(this.centerContent);
 			},
 			flatCoor(x, y) {
@@ -199,24 +218,8 @@
 			unShow() {
 				this.centerShow = false;
 			},
-			loadData() {
-				var proxy = 'http://service.datav.aliyun.com/transparentProxy/proxy?url=';
+			transformCoor(arrCoor) {
 
-				this.axios.get('http://58.16.66.150:90/data/api/dataset/view2017/exDepData.html').then(res => {
-					let exData = res.data.data;
-					this.axios.get('http://58.16.66.150:90/data/api/dataset/view2017/dataDirectory.html').then(res => {
-						let dirData = res.data.data;
-						exData.forEach((item, index) => {
-							let indexDir = dirData.findIndex(dir => dir.orgName == item.orgName);
-							console.log(indexDir);
-							if (indexDir >= 0) {
-								exData[index].dataElementCount = dirData[indexDir].dataElementCount;
-							}
-						})
-						exData = exData.slice(0, 20);
-						this.datas = exData;
-					})
-				})
 			}
 		},
 		watch: {
@@ -230,6 +233,8 @@
 						return false;
 					}
 				});
+				console.log(res);
+				console.log(_index);
 			}
 		},
 		computed: {
@@ -280,17 +285,12 @@
 	.left-board {
 		border-radius: 5px;
 		border: 2px solid #75f1ff;
-		transform: translate3d(-370px, -25px, 0) rotateY(5deg) translateZ(1px);
+		transform: translate3d(-362px, -25px, 0) rotateY(5deg) translateZ(1px);
 		user-select: none;
 		width: 300px;
-		// &.cb {
-		// 	width: 300px;
-		// 	transform: translate3d(67px, 1058px, 0) rotateY(11deg) translateZ(-150px);
-		// 	animation: delay 3s linear;
-		// }
 		&.cb {
 			width: 300px;
-			transform: translate3d(45px, 1349px, -21px) rotateY(11deg) translateZ(-165px);
+			transform: translate3d(100px, 774px, 0) rotateY(11deg) translateZ(-150px);
 			animation: delay 3s linear;
 		}
 		.split-left {

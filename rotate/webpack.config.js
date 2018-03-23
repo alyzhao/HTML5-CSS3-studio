@@ -11,7 +11,7 @@ module.exports = {
 		filename: '[name].js',
 		publicPath: './'		// public 就是供服务器访问静态资源的的文件夹, 可以随便定义只是一个编码而已
 	},
-	devtool: 'source-map',
+	devtool: 'eval-source-map',
 	resolve: {
 		extensions: ['.js', '.vue', '.json'],
 		alias: {
@@ -68,12 +68,12 @@ module.exports = {
 		}]
 	},
 	devServer: {
-		port: 3000,
+		port: 5000,
 		historyApiFallback:{
             index:'/index.html'
         },
 		contentBase: './',
-		publicPath: '/',
+		publicPath: '/dist/',
 		hot: true
 	},
 	plugins: [
@@ -89,7 +89,7 @@ module.exports = {
 		new webpack.optimize.UglifyJsPlugin({  
             compress: { 
             	warnings: false,
-            	drop_debugger: true,  
+			    drop_debugger: true,  
 				drop_console: true
         	} 
         })

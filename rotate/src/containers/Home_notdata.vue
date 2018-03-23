@@ -21,12 +21,12 @@
 			<div class="left-line">
 				<extend-line :width="439" :height="20"></extend-line>
 			</div>
-			<div v-if="centerShow && centerContent.orgName" class="left-board cb">
+			<div v-if="centerShow && centerContent.name" class="left-board cb">
 				<div class="split-left"></div>
 				<div class="con">
-					<p><i class="icon icon-people"></i>{{centerContent.dataElementCount}}</p>
-					<p><i class="icon icon-company"></i>{{centerContent.dataUseCount}}</p>
-					<p><i class="icon icon-other"></i>{{centerContent.dataSupplyCount}}</p>
+					<p><i class="icon icon-people"></i>{{centerContent.value}}</p>
+					<p><i class="icon icon-company"></i>{{centerContent.value}}</p>
+					<p><i class="icon icon-other"></i>{{centerContent.value}}</p>
 				</div>
 			</div>
 		</div>
@@ -72,7 +72,55 @@
 		name: 'Home',
 		data() {
 			return {
-				datas: [],
+				datas: [{
+					name: 0,
+					value: '公安局'
+				}, {
+					name: 1,
+					value: '教育厅'
+				}, {
+					name: 2,
+					value: '工商局'
+				}, {
+					name: 3,
+					value: '国土局'
+				}, {
+					name: 4,
+					value: '税务局'
+				}, {
+					name: 5,
+					value: '人社厅'
+				}, {
+					name: 6,
+					value: 'qqq'
+				}, {
+					name: 7,
+					value: 'rrr'
+				}, {
+					name: 8,
+					value: 'ttt'
+				}, {
+					name: 9,
+					value: 'yyy'
+				}, {
+					name: 10,
+					value: 'iii'
+				}, {
+					name: 11,
+					value: 'yyy'
+				}, {
+					name: 12,
+					value: 'iii'
+				}, {
+					name: 13,
+					value: '税务局'
+				}, {
+					name: 14,
+					value: '人社厅'
+				}, {
+					name: 15,
+					value: 'qqq'
+				}],
 				bDatas: [{
 					name: 0,
 					value: '公安局'
@@ -114,33 +162,34 @@
 			}
 		},
 		mounted() {
+			console.log('fuck');
 			this.$nextTick(function() {
-				this.loadData();
-
-				// setTimeout(() => {
-				// 	this.bDatas[6].warning = true;
-				// 	let _index = [];
-				// 	let res = this.bDatas.filter((item, index) => {
-				// 		if (item.warning) {
-				// 			_index.push(index);
-				// 			return true;
-				// 		} else {
-				// 			return false;
-				// 		}
-				// 	});
-				// 	let deg = 90 - _index[0] * this.bAnguleInterval;
-				// 	this.bDatas[_index[0]].value += '( 警告警告！！！！！！)'
-				// 	this.bRotateAngle = deg;
-				// 	console.log(this.bDatas);
 
 
-				// 	this.datas[7].warning = true;
+				setTimeout(() => {
+					this.bDatas[6].warning = true;
+					let _index = [];
+					let res = this.bDatas.filter((item, index) => {
+						if (item.warning) {
+							_index.push(index);
+							return true;
+						} else {
+							return false;
+						}
+					});
+					let deg = 90 - _index[0] * this.bAnguleInterval;
+					this.bDatas[_index[0]].value += '( 警告警告！！！！！！)'
+					this.bRotateAngle = deg;
+					console.log(this.bDatas);
 
-				// 	this.rotateAngle = 90 - 7 * this.anguleInterval;
 
-				// 	this.datas[7].value += ' (警告警告！！！！！！)';
+					this.datas[7].warning = true;
 
-				// }, 5000)
+					this.rotateAngle = 90 - 7 * this.anguleInterval;
+
+					this.datas[7].value += ' (警告警告！！！！！！)';
+
+				}, 5000)
 			})
 		},
 		methods: {
@@ -152,8 +201,6 @@
 				this.rotateAngle = rotation;
 				this.centerShow = true;
 				this.centerContent = this.datas[index];
-				console.log(this.datas);
-				console.log(this.centerContent);
 			},
 			flatCoor(x, y) {
 				let center_el = this.$refs.center_el;
@@ -202,20 +249,8 @@
 			loadData() {
 				var proxy = 'http://service.datav.aliyun.com/transparentProxy/proxy?url=';
 
-				this.axios.get('http://58.16.66.150:90/data/api/dataset/view2017/exDepData.html').then(res => {
-					let exData = res.data.data;
-					this.axios.get('http://58.16.66.150:90/data/api/dataset/view2017/dataDirectory.html').then(res => {
-						let dirData = res.data.data;
-						exData.forEach((item, index) => {
-							let indexDir = dirData.findIndex(dir => dir.orgName == item.orgName);
-							console.log(indexDir);
-							if (indexDir >= 0) {
-								exData[index].dataElementCount = dirData[indexDir].dataElementCount;
-							}
-						})
-						exData = exData.slice(0, 20);
-						this.datas = exData;
-					})
+				this.axios.get('http://58.16.64.57/data/api/dataset/view2017/exDepData.html').then(res => {
+					this.datas = res.data;
 				})
 			}
 		},
@@ -283,14 +318,9 @@
 		transform: translate3d(-370px, -25px, 0) rotateY(5deg) translateZ(1px);
 		user-select: none;
 		width: 300px;
-		// &.cb {
-		// 	width: 300px;
-		// 	transform: translate3d(67px, 1058px, 0) rotateY(11deg) translateZ(-150px);
-		// 	animation: delay 3s linear;
-		// }
 		&.cb {
 			width: 300px;
-			transform: translate3d(45px, 1349px, -21px) rotateY(11deg) translateZ(-165px);
+			transform: translate3d(67px, 1058px, 0) rotateY(11deg) translateZ(-150px);
 			animation: delay 3s linear;
 		}
 		.split-left {
