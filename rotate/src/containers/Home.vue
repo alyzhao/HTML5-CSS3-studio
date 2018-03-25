@@ -75,32 +75,35 @@
 				datas: [],
 				bDatas: [{
 					name: 0,
-					value: '公安局'
+					value: '贵阳市'
 				}, {
 					name: 1,
-					value: '教育厅'
+					value: '遵义市'
 				}, {
 					name: 2,
-					value: '工商局',
+					value: '六盘水市',
 					warning: false
 				}, {
 					name: 3,
-					value: '国土局'
+					value: '安顺市'
 				}, {
 					name: 4,
-					value: '税务局'
+					value: '毕节市'
 				}, {
 					name: 5,
-					value: '人社厅'
+					value: '铜仁市'
 				}, {
 					name: 6,
-					value: 'qqq'
+					value: '黔东南州'
 				}, {
 					name: 7,
-					value: 'rrr'
+					value: '黔南州'
 				}, {
 					name: 8,
-					value: 'ttt'
+					value: '黔西南州'
+				}, {
+					name: 9,
+					value: '贵安新区'
 				}],
 				rotateAngle: 0,
 				dragAble: false,
@@ -150,7 +153,8 @@
 				e.stopPropagation();
 				let rotation = 90 - index * this.anguleInterval
 				this.rotateAngle = rotation;
-				this.centerShow = true;
+				this.centerShow = false;
+				// this.centerShow = true;
 				this.centerContent = this.datas[index];
 				console.log(this.datas);
 				console.log(this.centerContent);
@@ -202,8 +206,8 @@
 			loadData() {
 				var proxy = 'http://service.datav.aliyun.com/transparentProxy/proxy?url=';
 
-				this.axios.get('http://58.16.66.150:90/data/api/dataset/view2017/exDepData.html').then(res => {
-					let exData = res.data.data;
+				this.axios.get(proxy + 'http://datam.youlishu.com/dataset/json?oid=1406').then(res => {
+					let exData = res.data;
 					this.axios.get('http://58.16.66.150:90/data/api/dataset/view2017/dataDirectory.html').then(res => {
 						let dirData = res.data.data;
 						exData.forEach((item, index) => {
