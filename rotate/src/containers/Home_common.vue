@@ -16,10 +16,10 @@
 			</div>
 			<div class="right-img"></div>
 			<div class="right-line">
-				<extend-line :width="320" :height="20"></extend-line>
+				<extend-line :width="320" :height="10"></extend-line>
 			</div>
 			<div class="left-line">
-				<extend-line :width="439" :height="20"></extend-line>
+				<extend-line :width="280" :height="10"></extend-line>
 			</div>
 			<div v-if="centerShow && centerContent.orgName" class="left-board cb">
 				<div class="split-left"></div>
@@ -48,10 +48,10 @@
 		</div>
 		<div class="center"
 			:style="'z-index: -1;transform: translateZ(-200px) rotateX(65deg) rotateY(-15deg) rotateZ(' + rotateBottomAngle + 'deg)'">
-			<div v-for="n in 230" class="scale" 
+			<div v-for="n in 160" class="scale" 
 				:style="'transform: translateY(-100px) translateX(12px) translateZ(' + (-n * 2 - 150) + 'px)'">
 			</div>
-			<div class="bottom-round" :style="'transform: translateZ(-760px) translateY(-280px) rotateZ(' + bRotateAngle + 'deg)'">
+			<div class="bottom-round" :style="'transform: translateZ(-680px) translateY(-300px) translateX(15px) rotateZ(' + bRotateAngle + 'deg)'">
 				<div class="rdb"></div>
 				<bottom-rotate-cell v-for="(item, index) in bDatas"
 					:key="item.name"
@@ -64,8 +64,8 @@
 	</div>
 </template>
 <script>
-	import RotateCell from '../components/RotateCell';
-	import BottomRotateCell from '../components/BottomRotateCell';
+	import RotateCell from '../components/RotateCell_common.vue';
+	import BottomRotateCell from '../components/BottomRotateCell_common.vue';
 	import ExtendLine from '../components/ExtendLine';
 // 'transform: rotateY(70deg) rotateZ(' + bAnguleInterval * index + 'deg)'
 	export default {
@@ -134,7 +134,6 @@
 				// 	let deg = 90 - _index[0] * this.bAnguleInterval;
 				// 	this.bDatas[_index[0]].value += '( 警告警告！！！！！！)'
 				// 	this.bRotateAngle = deg;
-				// 	console.log(this.bDatas);
 
 
 				// 	this.datas[7].warning = true;
@@ -148,7 +147,6 @@
 		},
 		methods: {
 			clickRotate(index, e) {
-				console.log('click');
 				e.preventDefault();
 				e.stopPropagation();
 				let rotation = 90 - index * this.anguleInterval
@@ -156,8 +154,6 @@
 				this.centerShow = false;
 				// this.centerShow = true;
 				this.centerContent = this.datas[index];
-				console.log(this.datas);
-				console.log(this.centerContent);
 			},
 			flatCoor(x, y) {
 				let center_el = this.$refs.center_el;
@@ -169,17 +165,14 @@
 				let x = e.clientX;
 				let y = e.clientY;
 				this.coordinateStart = [x, y, 0];
-				console.log(this.coordinateStart);
 				this.mouseUp = false;
 				setTimeout(() => {
 					if (!this.mouseUp)
 						this.dragAble = true;
 				}, 100)
-				console.log('mousedown');
 			},
 			moveRotate(e) {
 				if (this.dragAble) {
-					console.log('move');
 
 					let x = e.clientX;
 					let y = e.clientY;
@@ -197,8 +190,6 @@
 					this.rotateAngle = this.rotateAngle + direct * 10;
 				}
 				this.mouseUp = true;
-				console.log('up');
-				console.log(this.coordinateOrigin)
 			},
 			unShow() {
 				this.centerShow = false;
@@ -212,7 +203,6 @@
 						let dirData = res.data.data;
 						exData.forEach((item, index) => {
 							let indexDir = dirData.findIndex(dir => dir.orgName == item.orgName);
-							console.log(indexDir);
 							if (indexDir >= 0) {
 								exData[index].dataElementCount = dirData[indexDir].dataElementCount;
 							}
@@ -284,7 +274,7 @@
 	.left-board {
 		border-radius: 5px;
 		border: 2px solid #75f1ff;
-		transform: translate3d(-260px, -25px, 0) rotateY(5deg) translateZ(1px);
+		transform: translate3d(-227px, -9px, 0) rotateY(5deg) translateZ(1px);
 		user-select: none;
 		width: 180px;
 		// &.cb {
@@ -303,7 +293,7 @@
 		    box-shadow: 0px 0px 55px 7px #00d9fd;
 		    background-color: #75daea;
 		    position: absolute;
-		    right: -57px;
+		    right: -45px;
 		    top: 50%;
 		    margin-top: -2px;
 
@@ -335,20 +325,20 @@
 	    position: absolute;
 	    background: transparent url('../assets/img/right-img.png') no-repeat;
 	    background-size: 240px;
-	    top: -310px;
-	    left: 590px;
+	    top: -282px;
+	    left: 545px;
 	}
 	.right-line {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translateX(83px) translateY(-139px) rotateZ(-43deg);
+		transform: translateX(65px) translateY(-95px) rotateZ(-41deg);
 	}
 	.left-line {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translateX(-151px) translateY(-122px) rotateZ(-135deg);
+		transform: translateX(-92px) translateY(-85px) rotateZ(-132deg);
 	}
 	.center {
 		width: 100px;
@@ -390,8 +380,8 @@
 		.bottom-round {
 			border-radius: 50%;
 			background-color: #77d0e8;
-			width: 400px;
-			height: 400px;
+			width: 330px;
+			height: 330px;
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -399,8 +389,8 @@
 			margin-left: -200px;
 			transition: all ease 0.3s;
 			.rdb {
-				width: 330px;
-				height: 330px;
+				width: 280px;
+				height: 280px;
 				position: absolute;
 				top: 50%;
 				left: 50%;
