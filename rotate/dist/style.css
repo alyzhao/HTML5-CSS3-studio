@@ -19,89 +19,89 @@ html, body {
   height: 100%;
 }
 .center-img {
-  width: 600px;
-  height: 380px;
+  width: 1000px;
+  height: 580px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -190px;
-  margin-left: -300px;
-  background: transparent url(./images/center.271645a.png) no-repeat;
-  background-size: 600px;
+  margin-top: -290px;
+  margin-left: -500px;
+  background: transparent url(./images/center_pudong.520ae92.png) no-repeat;
+  background-size: 1000px;
   z-index: 2;
   transform-style: preserve-3d;
 }
 .left-img {
-  width: 260px;
-  height: 130px;
+  width: 400px;
+  height: 200px;
   position: absolute;
-  background: transparent url(./images/left-img.ce85d6c.png) no-repeat;
-  background-size: 260px;
-  top: -215px;
-  left: -75px;
+  background: transparent url(./images/left-img_pudong2.44955fb.png) no-repeat;
+  background-size: 400px;
+  top: -305px;
+  left: -135px;
 }
 .left-board {
   border-radius: 5px;
   border: 2px solid #75f1ff;
-  transform: translate3d(-227px, -9px, 0) rotateY(5deg) translateZ(1px);
+  transform: translate3d(-341px, -25px, 0) rotateY(5deg) translateZ(1px);
   user-select: none;
-  width: 180px;
+  width: 300px;
 }
 .left-board.cb {
     width: 300px;
-    transform: translate3d(45px, 1349px, -21px) rotateY(11deg) translateZ(-165px);
+    transform: translate3d(67px, 1058px, 0) rotateY(11deg) translateZ(-150px);
     animation: delay 3s linear;
 }
 .left-board .split-left {
-    width: 45px;
-    height: 3px;
+    width: 56px;
+    height: 5px;
     box-shadow: 0px 0px 55px 7px #00d9fd;
     background-color: #75daea;
     position: absolute;
-    right: -45px;
+    right: -57px;
     top: 50%;
     margin-top: -2px;
 }
 .left-board .con {
     background-color: #75daea;
-    margin: 10px;
+    margin: 20px 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 55px 7px #00d9fd;
 }
 .left-board .con p {
       margin: 0;
       text-align: left;
-      padding: 2px 20px;
+      padding: 10px 33px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 170px;
-      font-size: 16px;
+      width: 230px;
+      font-size: 22px;
 }
 .left-board .con p .icon {
         flex-grow: .5;
-        font-size: 20px;
+        font-size: 30px;
 }
 .right-img {
-  width: 240px;
-  height: 225px;
+  width: 360px;
+  height: 340px;
   position: absolute;
-  background: transparent url(./images/right-img.0cdc64a.png) no-repeat;
-  background-size: 240px;
-  top: -282px;
-  left: 545px;
+  background: transparent url(./images/right-img_pudong2.23f7c12.png) no-repeat;
+  background-size: 360px;
+  top: -340px;
+  left: 660px;
 }
 .right-line {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(65px) translateY(-95px) rotateZ(-41deg);
+  transform: translateX(121px) translateY(-139px) rotateZ(-50deg);
 }
 .left-line {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(-92px) translateY(-85px) rotateZ(-132deg);
+  transform: translateX(-123px) translateY(-134px) rotateZ(-133deg);
 }
 .center {
   width: 100px;
@@ -144,8 +144,8 @@ html, body {
 .center .bottom-round {
     border-radius: 50%;
     background-color: #77d0e8;
-    width: 330px;
-    height: 330px;
+    width: 400px;
+    height: 400px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -154,8 +154,8 @@ html, body {
     transition: all ease 0.3s;
 }
 .center .bottom-round .rdb {
-      width: 280px;
-      height: 280px;
+      width: 330px;
+      height: 330px;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -192,14 +192,14 @@ to {
   justify-content: center;
   transform-origin: left center;
   top: 50%;
-  padding-left: 225px;
+  padding-left: 280px;
   user-select: none;
   cursor: pointer;
 }
 .rotate-cell .split {
     background-color: #55E2F9;
-    width: 222px;
-    height: 3px;
+    width: 308px;
+    height: 5px;
     border-radius: 100%;
     box-shadow: 0px 0px 20px 0px #55E2F9;
     display: flex;
@@ -208,25 +208,24 @@ to {
 .rotate-cell .split .ball {
       display: inline-block;
       border-radius: 50%;
-      width: 7px;
-      height: 7px;
+      width: 13px;
+      height: 13px;
       background-color: #03afdf;
       animation: slippage 3s linear 0s infinite alternate;
 }
 .rotate-cell .tag {
     color: #07313c;
-    width: 145px;
-    height: 55px;
-    font-size: 14px;
+    width: 190px;
+    height: 80px;
+    font-size: 16px;
     text-align: center;
     border: 4px solid #58dee9;
     background-color: #03afdf;
-    margin-left: 8px;
+    margin-left: 15px;
     white-space: nowrap;
     font-weight: bold;
-    line-height: 50px;
+    line-height: 80px;
     overflow: hidden;
-    white-space: normal;
 }
 .rotate-cell .tag.warning {
       background-color: #ea4141;
@@ -236,16 +235,16 @@ to {
     transform: translateX(0);
 }
 25% {
-    transform: translateX(55px);
+    transform: translateX(77px);
 }
 50% {
-    transform: translateX(111px);
+    transform: translateX(154px);
 }
 75% {
-    transform: translateX(166px);
+    transform: translateX(231px);
 }
 100% {
-    transform: translateX(222px);
+    transform: translateX(308px);
 }
 }
 
@@ -259,13 +258,13 @@ to {
   transform-origin: left center;
   top: 50%;
   user-select: none;
-  padding-left: 170px;
+  padding-left: 200px;
   height: 50px;
   margin-top: -25px;
 }
 .bottom-cell .b-split {
     background-color: #55E2F9;
-    width: 200px;
+    width: 360px;
     height: 6px;
     border-radius: 100%;
     box-shadow: 0px 0px 20px 0px #55E2F9;
@@ -276,8 +275,8 @@ to {
 .bottom-cell .b-ball {
     display: inline-block;
     border-radius: 50%;
-    width: 7px;
-    height: 7px;
+    width: 15px;
+    height: 15px;
     background-color: #74feff;
     animation: bslippage 5s linear 0s infinite alternate;
     position: absolute;
@@ -286,16 +285,16 @@ to {
 .bottom-cell .b-tag {
     color: #333;
     opacity: .8;
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
     background-color: #9de0f3;
     margin-left: 5px;
     white-space: nowrap;
     font-weight: bold;
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    line-height: 120px;
+    width: 140px;
+    height: 140px;
+    line-height: 140px;
 }
 .bottom-cell .b-tag.warning {
       background-color: #ea4141;
@@ -305,16 +304,16 @@ to {
     transform: translateX(0);
 }
 25% {
-    transform: translateX(50px);
+    transform: translateX(90px);
 }
 50% {
-    transform: translateX(100px);
+    transform: translateX(180px);
 }
 75% {
-    transform: translateX(150px);
+    transform: translateX(270px);
 }
 100% {
-    transform: translateX(200px);
+    transform: translateX(360px);
 }
 }
 

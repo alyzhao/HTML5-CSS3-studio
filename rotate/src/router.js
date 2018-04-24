@@ -3,7 +3,8 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
-import home from './containers/Home_common.vue'
+// import home from './containers/Home_former.vue'
+import home from './containers/Home_pudong.vue'
 
 const routes = [
   { path: '/', component: home },
