@@ -4,17 +4,24 @@
 		@mousedown="unShow()"
 		@mouseup="msUpRotate($event)">
 		<div class="center-img">
+			<p class="word left-word">{{leftWord}}</p>
+			<p class="word center-word">{{centerWord}}</p>
+			<p class="word right-word">{{rightWord}}</p>
 			<div class="left-img">
+				<p class="word top-left-word">{{topLeftWord}}</p>
 				<div class="left-board">
 					<div class="split-left"></div>
 					<div class="con">
-						<p><i class="icon icon-people"></i>群众</p>
+						<p><i class="icon icon-people"></i>居村</p>
 						<p><i class="icon icon-company"></i>企业</p>
-						<p><i class="icon icon-other"></i>其他</p>
+						<p><i class="icon icon-organization"></i>社会组织</p>
+						<p><i class="icon icon-other"></i>事业单位</p>
 					</div>
 				</div>
 			</div>
-			<div class="right-img"></div>
+			<div class="right-img">
+				<p class="word top-right-word">{{topRightWord}}</p>
+			</div>
 			<div class="right-line">
 				<extend-line :width="280" :height="20"></extend-line>
 			</div>
@@ -31,7 +38,6 @@
 			</div>
 		</div>
 		<div class="center" style="transform: translateZ(-200px) rotateX(66deg) rotateY(-15deg) rotateZ(0deg);z-index: 1;">
-			<div class="op"></div>
 		</div>
 		<div class="center" ref="center_el"
 			:class="{ drag: dragAble }"
@@ -143,7 +149,12 @@
 				rotateBottomAngle: 0,
 				centerShow: false,
 				centerContent: null,
-				bRotateAngle: 0
+				bRotateAngle: 0,
+				leftWord: "委办会",
+				centerWord: "城运中心",
+				rightWord: "管委会",
+				topLeftWord: "36个街镇",
+				topRightWord: "110个联勤联动站"
 			}
 		},
 		mounted() {
@@ -284,6 +295,44 @@
 		background-size: 1000px;
 		z-index: 2;
 		transform-style: preserve-3d;
+		.word {
+			color: #185759;
+			font-size: 30px;
+			font-weight: bold;
+			margin: 0;
+			position: absolute;
+			text-align: center;
+			&.left-word {
+				bottom: 160px;
+				left: 44px;
+				width: 190px;
+				transform: rotateZ(3deg);
+			}
+			&.center-word {
+			    left: 303px;
+			    top: 260px;
+			    width: 300px;
+			    font-size: 36px;				
+			}
+			&.right-word {
+				right: 59px;
+				top: 244px;
+				width: 200px;
+				transform: rotateZ(3deg);				
+			}
+			&.top-left-word {
+			    top: 86px;
+			    left: 45px;
+			    width: 208px;
+			    transform: rotateZ(3deg);				
+			}
+			&.top-right-word {
+			    right: 18px;
+			    top: 170px;
+			    transform: rotateZ(-7deg);
+			    width: 255px;				
+			}
+		}
 	}
 	.left-img {
 		width: 400px;
@@ -297,7 +346,7 @@
 	.left-board {
 		border-radius: 5px;
 		border: 2px solid #75f1ff;
-		transform: translate3d(-341px, -25px, 0) rotateY(5deg) translateZ(1px);
+		transform: translate3d(-341px, -57px, 0) rotateY(5deg) translateZ(1px);
 		user-select: none;
 		width: 300px;
 		&.cb {
@@ -413,7 +462,7 @@
 				top: 50%;
 				left: 50%;
 				transform: translateX(-50%) translateY(-50%);
-				background-color: #000;
+				background-color: #fff;
 				border-radius: 50%;
 			}
 		}

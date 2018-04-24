@@ -16,7 +16,7 @@
 		width: 100%;
 		height: 100%;
 		position: relative;
-		background: #000;
+		background: rgba(0, 0, 0, 0);
 		overflow: hidden;
 
 		perspective: 800px;
