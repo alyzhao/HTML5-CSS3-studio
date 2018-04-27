@@ -26,7 +26,7 @@ html, body {
   left: 50%;
   margin-top: -290px;
   margin-left: -500px;
-  background: transparent url(./images/center_pudong.2117a76.png) no-repeat;
+  background: transparent url(./images/center-empty.f0f469d.png) no-repeat;
   background-size: 1000px;
   z-index: 2;
   transform-style: preserve-3d;
@@ -73,17 +73,17 @@ html, body {
   width: 400px;
   height: 200px;
   position: absolute;
-  background: transparent url(./images/left-img_pudong2.7c3ac09.png) no-repeat;
-  background-size: 400px;
+  background: transparent url(./images/left-img-empty.83d2221.png) no-repeat;
+  background-size: 195px;
   top: -305px;
-  left: -135px;
+  left: -52px;
 }
 .left-board {
   border-radius: 5px;
   border: 2px solid #75f1ff;
-  transform: translate3d(-341px, -57px, 0) rotateY(5deg) translateZ(1px);
+  transform: translate3d(-451px, -75px, 0) rotateY(5deg) translateZ(1px);
   user-select: none;
-  width: 300px;
+  width: 400px;
 }
 .left-board.cb {
     width: 300px;
@@ -109,12 +109,11 @@ html, body {
 .left-board .con p {
       margin: 0;
       text-align: left;
-      padding: 10px 33px;
+      padding: 25px 33px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 230px;
-      font-size: 22px;
+      font-size: 30px;
 }
 .left-board .con p .icon {
         flex-grow: .5;
@@ -124,7 +123,7 @@ html, body {
   width: 360px;
   height: 340px;
   position: absolute;
-  background: transparent url(./images/right-img_pudong2.8846241.png) no-repeat;
+  background: transparent url(./images/right-img-empty.d6b1e61.png) no-repeat;
   background-size: 360px;
   top: -340px;
   left: 660px;
@@ -133,7 +132,7 @@ html, body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(121px) translateY(-139px) rotateZ(-50deg);
+  transform: translateX(94px) translateY(-139px) rotateZ(-50deg);
 }
 .left-line {
   position: absolute;

@@ -10,13 +10,12 @@
 			<div class="left-img">
 				<p class="word top-left-word">{{topLeftWord}}</p>
 				<div class="left-board">
-					<div class="split-left"></div>
 					<div class="con">
-						<p><i class="icon icon-people"></i>居村</p>
-						<p><i class="icon icon-company"></i>企业</p>
-						<p><i class="icon icon-organization"></i>社会组织</p>
-						<p><i class="icon icon-other"></i>事业单位</p>
+						<p>政府决策科学化</p>
+						<p>社会治理精准化</p>
+						<p>公共服务高效化</p>
 					</div>
+					<div class="borad-split"></div>
 				</div>
 			</div>
 			<div class="right-img">
@@ -150,11 +149,11 @@
 				centerShow: false,
 				centerContent: null,
 				bRotateAngle: 0,
-				leftWord: "委办会",
-				centerWord: "城运中心",
-				rightWord: "管委会",
-				topLeftWord: "36个街镇",
-				topRightWord: "110个联勤联动站"
+				leftWord: "",
+				centerWord: "",
+				rightWord: "",
+				topLeftWord: "",
+				topRightWord: ""
 			}
 		},
 		mounted() {
@@ -192,8 +191,8 @@
 				e.stopPropagation();
 				let rotation = 90 - index * this.anguleInterval
 				this.rotateAngle = rotation;
-				this.centerShow = true;
-				this.centerContent = this.datas[index];
+				// this.centerShow = true;
+				// this.centerContent = this.datas[index];
 			},
 			flatCoor(x, y) {
 				let center_el = this.$refs.center_el;
@@ -240,11 +239,7 @@
 				this.centerShow = false;
 			},
 			loadData() {
-				var proxy = 'http://service.datav.aliyun.com/transparentProxy/proxy?url=';
 
-				this.axios.get('http://58.16.64.57/data/api/dataset/view2017/exDepData.html').then(res => {
-					this.datas = res.data;
-				})
 			}
 		},
 		watch: {
@@ -291,7 +286,7 @@
 	    left: 50%;
 	    margin-top: -290px;
 	    margin-left: -500px;
-		background: transparent url('../assets/img/center_pudong.png') no-repeat;
+		background: transparent url('../assets/img/center-empty.png') no-repeat;
 		background-size: 1000px;
 		z-index: 2;
 		transform-style: preserve-3d;
@@ -338,17 +333,17 @@
 		width: 400px;
 		height: 200px;
 		position: absolute;
-		background: transparent url('../assets/img/left-img_pudong2.png') no-repeat;
-		background-size: 400px;
+		background: transparent url('../assets/img/left-img-empty.png') no-repeat;
+		background-size: 195px;
 		top: -305px;
-		left: -135px;
+		left: -52px;
 	}
 	.left-board {
 		border-radius: 5px;
 		border: 2px solid #75f1ff;
-		transform: translate3d(-341px, -57px, 0) rotateY(5deg) translateZ(1px);
+		transform: translate3d(-451px, -75px, 0) translateZ(1px);
 		user-select: none;
-		width: 300px;
+		width: 400px;
 		&.cb {
 			width: 300px;
 			transform: translate3d(67px, 1058px, 0) rotateY(11deg) translateZ(-150px);
@@ -365,20 +360,29 @@
 		    margin-top: -2px;
 
 		}
+		.borad-split {
+			position: absolute;
+			z-index: 11;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 5px;
+			height: 70px;
+			background-color: #fff;
+		}
 		.con {
 			background-color: #75daea;
 			margin: 20px 20px;
 			border-radius: 5px;
 			box-shadow: 0px 0px 55px 7px #00d9fd;
 			p {
-				margin: 0;
+			    margin: 0;
 			    text-align: left;
-			    padding: 10px 33px;
+			    padding: 25px 33px;
 			    display: flex;
 			    align-items: center;
 			    justify-content: center;
-			    width: 230px;
-			    font-size: 22px;
+			    font-size: 30px;
 			    .icon {
 			    	flex-grow: .5;
 			    	font-size: 30px;
@@ -390,7 +394,7 @@
 		width: 360px;
 	    height: 340px;
 	    position: absolute;
-	    background: transparent url('../assets/img/right-img_pudong2.png') no-repeat;
+	    background: transparent url('../assets/img/right-img-empty.png') no-repeat;
 	    background-size: 360px;
 	    top: -340px;
 	    left: 660px;
@@ -399,7 +403,7 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translateX(121px) translateY(-139px) rotateZ(-50deg);
+		transform: translateX(94px) translateY(-139px) rotateZ(-50deg);
 	}
 	.left-line {
 		position: absolute;
